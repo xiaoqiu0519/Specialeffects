@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="loganbg">
-      hhhhhh
+      
     </div>
   </div>
 </template>
@@ -17,6 +17,5 @@ export default {
   height 100%;
   .loganbg
     width 100%;
-    height 100px;
-    background #ffa54f;
+    
 </style>
