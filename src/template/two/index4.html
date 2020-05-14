@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="./css/commom.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="content clear">
+        <div class="slogan">致力于一切和“美”有关的事业</div>
+    </div>
+    <div class="bg-1-box">
+        <img class="bg-left" src="./img/bg-1.png" alt="" srcset="">
+        <img class="bg-right" src="./img/bg-1.png" alt="" srcset="">
+    </div>
+</body>
+
+</html>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.ripples.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('body').ripples({
+            resolution: 100,
+            dropRadius: 250,
+            perturbance: 0.03,
+
+        });
+    });
+</script>
