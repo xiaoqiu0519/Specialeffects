@@ -10,6 +10,14 @@
         <%= htmlWebpackPlugin.options.title %>
     </title>
 </head>
+<style>
+    body {
+        width: 100%;
+        background-image: linear-gradient(to bottom left, #FFEFB0, #BF3A20);
+        background-size: cover;
+    }
+</style>
+
 
 <body>
     <noscript>
@@ -17,6 +25,21 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script>
+        document.body.style.minHeight = window.screen.height + 'px'
+    </script>
 </body>
 
 </html>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.ripples.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('body').ripples({
+            resolution: 100,
+            dropRadius: 220,
+            perturbance: 0.03,
+
+        });
+    });
+</script>

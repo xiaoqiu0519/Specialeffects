@@ -1,9 +1,14 @@
 <template>
     <div class="nav"> 
         <div :class="{content:true,enter:enterflag,out:!enterflag}">
-            <div class="closeimg" @click="closenav()"></div>
+            <div class="closeimg" @click="closenav()">
+                <img src="../assets/closeimg.png" alt="" srcset="">
+            </div>
             <div class="navlist">
-                <div :class="setClass(index)" v-for='(list,index) in 6' :key="index">三大纪律看见啊湿垃圾三份</div>
+                <div class="conta">
+                    <div class="slogan"><img src="../assets/lacrae.png" alt="" srcset=""></div>
+                    <div :class="setClass(index)" v-for='(list,index) in navArr' :key="index">{{list}}</div>
+                </div>
             </div>
         </div>
     </div>
@@ -14,6 +19,14 @@ export default {
     data(){
         return{
             enterflag:true,
+            navArr:[
+                '首页',
+                '关于我们',
+                '营销方案',
+                '营销方案',
+                '案例展示',
+                '联系我们'
+            ]
         }
     },
     computed:{
@@ -41,10 +54,10 @@ export default {
 <style lang="stylus" scoped>
 @keyframes enter { 
     0% { margin-left:100%} 
-    100% { margin-left:50%} 
+    100% { margin-left:70%} 
 }
 @keyframes out { 
-    0% { margin-left:50%} 
+    0% { margin-left:70%} 
     100% { margin-left:100%} 
 }
 @keyframes animateleft {
@@ -57,6 +70,10 @@ export default {
         opacity:1
     }
 }
+@keyframes scaleDraw {
+    0% {transform:scale(1);}
+    100% {transform:scale(1.1)};
+}
 .nav
     position fixed;
     width 100%;
@@ -65,13 +82,13 @@ export default {
     top 0;
     background rgba(0,0,0,0.5);
     .enter
-        animation enter 0.4s ease-in;
-        margin-left 50%;
+        animation enter 0.4s ease-in-out;
+        margin-left 70%;
     .out
         animation out 0.4s ease-in;
         margin-left 100%;
     .content
-        width 50%;
+        width 30%;
         height 100%;
         background white;
         position relative;
@@ -80,13 +97,28 @@ export default {
             width 100px;
             height 100px;
             position absolute;
-            top 20px;
-            right 20px;
-            background red;
+            top 0;
+            right 0;
+            color #333333;
+            text-align center;
+            cursor pointer;
+            img
+                width 32px;
+                margin-top 34px;
+                transition: all 0.6s; 
+                &:hover
+                    transform: scale(1.6);   
         .navlist
-            width 300px;
-            height 400px;
-            background yellow; 
+            width 100%;
+            height 100%;
+            display flex;
+            align-items center;
+            .conta
+                height 205px;
+                div
+                    width 100%;
+                    text-indent 35px;
+                    flex-wrap wrap;
             .animateleft0
                 animation animateleft 1s ease;
             .animateleft1
@@ -107,10 +139,20 @@ export default {
                 animation animateleft 1.8s ease;                            
             .list
                 width 100%;
-                height 30px;
                 background white;
-                margin-bottom 10px;   
                 margin-left 0;
                 opacity 1;
-
+                color #1E1E1E;
+                margin-bottom 16px;
+                cursor pointer;
+                line-height 1;
+                font-size:9px;
+                font-family:Source Han Sans SC;
+                &:hover
+                    opacity 0.5;
+            .slogan
+                margin-bottom 47px;
+                img 
+                    width 80px; 
+                       
 </style>

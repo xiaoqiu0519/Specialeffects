@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <router-view/>
-    <div @click="setnavflagAsy(1)">点击</div>
+    <div class="menu" @click="setnavflagAsy(1)" v-if="!navflag">
+        <img src="../src/assets/meun.png" alt="" srcset="">
+        <p>menu</p>
+    </div>
     <transition-group name="opacityanimate">
       <navigation :key="1" v-if="navflag"/>
     </transition-group>
@@ -15,6 +18,9 @@ import navigation from './views/navigation'
 export default {
     computed:{
         ...mapGetters(['navflag'])
+    },
+    mounted(){
+        //console.log($)
     },
     components:{
        navigation
@@ -38,5 +44,20 @@ export default {
   }
   .opacityanimate-enter-active,.opacityanimate-leave-active{
     transition: all 1.5s;
-  }                      
+  }       
+  .menu
+    width 50px;
+    height 50px;
+    position absolute;
+    top 200px;
+    right 100px;
+    z-index 10;
+    text-align center;
+    font-size:10px;
+    font-family:Source Han Sans SC;
+    font-weight:500
+    color white;
+    img
+        width 25px;   
+        margin-top 10px;             
 </style>
