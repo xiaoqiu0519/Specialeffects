@@ -22,7 +22,12 @@
         <p>营销解决方案</p>  
         <p><span class="more">了解更多</span></p>
       </div>
-      <div class="right"></div>
+      <div class="right">
+        <div class="tips" v-for="(list,index) in tipArr" :key="index">
+          <img :src="list.img" alt="" srcset="">
+          <p>{{list.txt}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -30,6 +35,28 @@
 <script>
 // @ is an alias to /src
 export default {
+  data(){
+    return{
+      tipArr:[
+        {
+          img:require('../assets/tip1.png'),
+          txt:'品牌战略'
+        },
+        {
+          img:require('../assets/tip2.png'),
+          txt:'一站式服务'
+        },
+        {
+          img:require('../assets/tip3.png'),
+          txt:'海外品牌引进'
+        },
+        {
+          img:require('../assets/tip4.png'),
+          txt:'市场支持'
+        }
+      ]
+    }
+  },
   name: 'Home',
 }
 </script>
@@ -110,7 +137,7 @@ export default {
     overflow hidden;
     div
       float left;
-      width 50%;
+      width 415px;
     .left
       text-align right ; 
       font-size:30px;
@@ -120,10 +147,13 @@ export default {
       margin-top 90px;
       p
         margin-right 50px;
+      &>p:nth-child(3)
+        line-height 1;  
       .more
         text-align center;
         width:50px;
         height:14px; 
+        line-height 14px;
         background white;
         font-size 10px;
         font-weight normal;
@@ -131,7 +161,23 @@ export default {
         display inline-block;
         cursor pointer;
     .right
+      width 365px;
       background white;
       height 100%;
+      padding-left 50px;
+      div
+        width 50px;
+        height 58px;
+        float left;
+        font-size:8px;
+        font-family:Source Han Sans SC;
+        font-weight:400;
+        color:rgba(100,100,100,1);
+        line-height:16px;
+        text-align center;
+        margin-top 103px;
+        margin-right 30px;
+        img
+          width 40px;
 
 </style>

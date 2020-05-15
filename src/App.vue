@@ -57,6 +57,7 @@ export default {
     font-family:Source Han Sans SC;
     font-weight:500
     color white;
+    cursor pointer;
     img
         width 25px;   
         margin-top 10px;             
