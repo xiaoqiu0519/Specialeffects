@@ -8,12 +8,14 @@
     <transition-group name="opacityanimate">
       <navigation :key="1" v-if="navflag"/>
     </transition-group>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import {mapActions ,mapGetters} from 'vuex';
 import navigation from './views/navigation'
+import Footer from './views/Footer'
 
 export default {
     computed:{
@@ -23,7 +25,8 @@ export default {
         //console.log($)
     },
     components:{
-       navigation
+       navigation,
+       Footer
     },
     methods:{
       ...mapActions(['setnavflagAsy'])
@@ -32,6 +35,8 @@ export default {
 </script>
 <style lang="stylus">
 #app
+  width: 1200px;
+  margin 0 auto;
   font-family Avenir, Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
