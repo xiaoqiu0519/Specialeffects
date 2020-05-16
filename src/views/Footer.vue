@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <div class="list" v-for="(item,index) in listdata" :key="index">
+    <div class="list" v-for="(item,index) in listdata[languagetype]" :key="index">
       <div class="list_img"><img :src="item.img" alt="" srcset=""></div>
       <div class="country">{{item.conutry}}</div>
       <div class="list_con">
@@ -10,37 +10,100 @@
   </div>
 </template>
 <script>
+import {mapGetters} from 'vuex';
 export default {
   data(){
     return{
-      listdata:[
-        {
-          img:require('../assets/zhongguo.png'),
-          conutry:'中国',
-          list:[
-            '杭州市江干区UDC时代大厦A座28楼',
-            'ken.l@lacrae.com.au'
-          ]
-        },
-        {
-          img:require('../assets/aozhou.png'),
-          conutry:'澳洲',
-          list:[
-            'Suite 702, 11-15 Dean St, Burwood',
-            'Sydney NSW Australia 2134',
-            'ken.l@lacrae.com.au'
-          ]
-        },
-        {
-          img:require('../assets/lianxiwomen.png'),
-          conutry:'联系我们',
-          list:[
-            '地址：杭州市江干区UDC时代大厦A座28楼',
-            '电话：88888888'
-          ]
-        }
-      ]
+      listdata:{
+        1:[
+          {
+            img:require('../assets/zhongguo.png'),
+            conutry:'中国',
+            list:[
+              '杭州市江干区UDC时代大厦A座28楼',
+              'ken.l@lacrae.com.au'
+            ]
+          },
+          {
+            img:require('../assets/aozhou.png'),
+            conutry:'澳洲',
+            list:[
+              'Suite 702, 11-15 Dean St, Burwood',
+              'Sydney NSW Australia 2134',
+              'ken.l@lacrae.com.au'
+            ]
+          },
+          {
+            img:require('../assets/lianxiwomen.png'),
+            conutry:'联系我们',
+            list:[
+              '地址：杭州市江干区UDC时代大厦A座28楼',
+              '电话：88888888'
+            ]
+          }
+        ],
+        2:[
+          {
+            img:require('../assets/zhongguo.png'),
+            conutry:'',
+            list:[
+              '',
+              'ken.l@lacrae.com.au'
+            ]
+          },
+          {
+            img:require('../assets/aozhou.png'),
+            conutry:'',
+            list:[
+              'Suite 702, 11-15 Dean St, Burwood',
+              'Sydney NSW Australia 2134',
+              'ken.l@lacrae.com.au'
+            ]
+          },
+          {
+            img:require('../assets/lianxiwomen.png'),
+            conutry:'',
+            list:[
+              '',
+              ''
+            ]
+          }
+        ],
+        3:[
+          {
+            img:require('../assets/zhongguo.png'),
+            conutry:'',
+            list:[
+              '',
+              'ken.l@lacrae.com.au'
+            ]
+          },
+          {
+            img:require('../assets/aozhou.png'),
+            conutry:'',
+            list:[
+              'Suite 702, 11-15 Dean St, Burwood',
+              'Sydney NSW Australia 2134',
+              'ken.l@lacrae.com.au'
+            ]
+          },
+          {
+            img:require('../assets/lianxiwomen.png'),
+            conutry:'',
+            list:[
+              '',
+              ''
+            ]
+          }
+        ]
+      }
     }
+  },
+  computed:{
+    ...mapGetters(['languagetype'])
+  },
+  methods:{
+    
   }
 
 }

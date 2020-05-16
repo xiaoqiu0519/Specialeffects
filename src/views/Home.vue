@@ -1,30 +1,34 @@
 <template>
   <div class="home">
-    <div class="lau">中 | En | 日</div>
+    <div class="lau">
+      <span @click="setlanguagetypeAsy(1)">中</span>|
+      <span @click="setlanguagetypeAsy(2)">En</span>|
+      <span @click="setlanguagetypeAsy(3)">日</span>|
+    </div>
     <div class="menu" @click="setnavflagAsy(1)" v-if="!navflag">
         <img src="../assets/meun.png" alt="" srcset="">
         <p>menu</p>
     </div>
-    <div class="slogan">致力于一切和“美”有关的事业</div>
+    <div class="slogan">{{slogan[languagetype]}}</div>
     <div class="bg-1">
       <img class="left" src="../assets/bg-1.png" alt="" srcset="">
       <img class="right" src="../assets/bg-1.png" alt="" srcset="">
       <div class="content">
         <div class="list">
-          <p>Lacrae（乐科锐）是一家专注于中国市场的多元化的市场营销和销售咨询公司。我们利用大数据分析社交网络和电商趋势，通过战略性的品牌管理方针，明智的市场进入策略，有针对性的销售渠道和有效的营销支持，帮</p>
-          <p>在Lacrae（乐科锐），我们通过“您是谁”来定义我们将为您带来什么服务。我们关心您想要实现的目标，并共同投资于您的未来。自乐科锐成立以来，我们与服务的客户一起成长，共同探索商业模型，并取得了长期的</p>
+          <p>{{contentlist[languagetype].lacraetop}}</p>
+          <p>{{contentlist[languagetype].lacraedown}}</p>
         </div>
         <div class="title">
-          <p class="ab-us">关于我们</p>
-          <p class="more">了解更多</p>
+          <p class="ab-us">{{contenttitle[languagetype].aboutus}}</p>
+          <p class="more">{{contenttitle[languagetype].more}}</p>
         </div>
       </div>
     </div>
     <div class="con">
       <div class="left">
-        <p>定制专属于您的</p>
-        <p>营销解决方案</p>  
-        <p><span class="more">了解更多</span></p>
+        <p>{{Exclusive[languagetype].title}}</p>
+        <p>{{Exclusive[languagetype].con}}</p>  
+        <p><span class="more">{{Exclusive[languagetype].more}}</span></p>
       </div>
       <div class="right">
         <div class="tips" v-for="(list,index) in tipArr" :key="index">
@@ -33,20 +37,20 @@
         </div>
       </div>
     </div>
-    <div class="panter">
+    <div class="Partner">
       <div class="title">
-        <p>我们的合作伙伴</p>
-        <p>Lacrae（乐科锐）与所有主要的线上和线下销售渠道 </p>
-        <p>和营销平台建立了牢固的合作关系。</p>
+        <p>{{Partner[languagetype].title}}</p>
+        <p>{{Partner[languagetype].con}}</p>
+        <p>{{Partner[languagetype].tips}}</p>
       </div>
-      <div class="panter_list left">
+      <div class="Partner_list left">
         <img src="../assets/xinlang.png" alt="" srcset="">
         <img src="../assets/weixin.png" alt="" srcset="">
         <img src="../assets/douyin.png" alt="" srcset="">
         <img src="../assets/kuaishou.png" alt="" srcset="">
         <img src="../assets/alibaba.png" alt="" srcset="">
       </div>
-      <div class="panter_list right">
+      <div class="Partner_list right">
         <img src="../assets/baidu.png" alt="" srcset="">
         <img src="../assets/youku.png" alt="" srcset="">
         <img src="../assets/jingdong.png" alt="" srcset="">
@@ -55,9 +59,9 @@
       </div>
     </div>
     <div class="product">
-      <div class="title">案例展示</div>
+      <div class="title">{{producttitle[languagetype]}}</div>
       <div class="content">
-        <div class="list" v-for="(list,index) in prolist" :key="index">
+        <div class="list" v-for="(list,index) in prolist[languagetype]" :key="index">
           <img :src="list.img" alt="">
           <p>{{list.text}}</p>
         </div>
@@ -73,6 +77,73 @@ export default {
   name: 'Home',
   data(){
     return{
+      slogan:{
+        1:'致力于一切和“美”有关的事业',
+        2:'',
+        3:''
+      },
+      contentlist:{
+        1:{
+          lacraetop:'Lacrae（乐科锐）是一家专注于中国市场的多元化的市场营销和销售咨询公司。我们利用大数据分析社交网络和电商趋势，通过战略性的品牌管理方针，明智的市场进入策略，有针对性的销售渠道和有效的营销支持，帮',
+          lacraedown:'在Lacrae（乐科锐），我们通过“您是谁”来定义我们将为您带来什么服务。我们关心您想要实现的目标，并共同投资于您的未来。自乐科锐成立以来，我们与服务的客户一起成长，共同探索商业模型，并取得了长期的'
+        },
+        2:{
+          lacraetop:'',
+          lacraedown:''
+        },
+        3:{
+          lacraetop:'',
+          lacraedown:''
+        }
+      },
+      contenttitle:{
+        1:{
+          aboutus:'关于我们',
+          more:'了解更多'
+        },
+        2:{
+          aboutus:'',
+          more:''
+        },
+        3:{
+          aboutus:'',
+          more:''
+        }
+      },
+      Exclusive:{
+        1:{
+          title:'定制专属于您的',
+          con:'营销解决方案',
+          more:'了解更多'
+        },
+        2:{
+          title:'',
+          con:"",
+          more:''
+        },
+        3:{
+          title:'',
+          con:"",
+          more:''
+        }
+      },
+      Partner:{
+        1:{
+          title:'我们的合作伙伴',
+          con:'Lacrae（乐科锐）与所有主要的线上和线下销售渠道',
+          tips:'和营销平台建立了牢固的合作关系。'
+        },
+        2:{
+          title:'',
+          con:"",
+          tips:''
+        },
+        3:{
+          title:'',
+          con:"",
+          tips:''
+        },
+      },
       tipArr:[
         {
           img:require('../assets/tip1.png'),
@@ -91,21 +162,48 @@ export default {
           txt:'市场支持'
         }
       ],
-      prolist:[
-        {img:require('../assets/pro_1.png'),text:'TasmanUGG是澳洲本土的UGG品牌，TASMAN一词取自于澳大利亚，NIA的第一位登陆者AbelTASMA，覆盖UGG真皮鞋具，时尚服饰和饰品，以及休闲产品线。'},
-        {img:require('../assets/pro_2.png'),text:'博乐达是一个专业护肤品品牌，自成立以来专注于皮肤修复，祛痘控油等领域，采用缓控释超分子水杨酸专利技术，研发了一系列具有“博乐达“标签的超分子水杨酸产品。'},
-        {img:require('../assets/pro_3.png'),text:'维维豆奶是中国最大的豆奶企业，集团成立于1992年迄今为止28年历史。维维豆奶粉是经过先进技术生产的，具有营养丰富，合理平衡的食品。'},
-        {img:require('../assets/pro_4.png'),text:'A股上市企业旗下女性时尚运动品牌，邀请意大利设计师设计，国内顶级供应链，定位中高端女性健身服市场。'},
-        {img:require('../assets/pro_5.png'),text:'杭州市西湖环境集团开展的公共服务项目，意在倡导居民们实行垃圾分类，并为其提供对应基础服务。'},
-        {img:require('../assets/pro_6.png'),text:'澳洲品牌totalpet，由两位行业经验丰富的动物学和农业专家创立，主要致力于帮助宠物达成一生的福祉，她们利用行业内40多年的经验，研发了一系列宠物保健产品，在澳洲广受好评。'},
-      ]
+      producttitle:{
+        1:'案例展示',
+        2:'',
+        3:''
+      },
+      prolist:{
+        1:[
+          {img:require('../assets/pro_1.png'),text:'TasmanUGG是澳洲本土的UGG品牌，TASMAN一词取自于澳大利亚，NIA的第一位登陆者AbelTASMA，覆盖UGG真皮鞋具，时尚服饰和饰品，以及休闲产品线。'},
+          {img:require('../assets/pro_2.png'),text:'博乐达是一个专业护肤品品牌，自成立以来专注于皮肤修复，祛痘控油等领域，采用缓控释超分子水杨酸专利技术，研发了一系列具有“博乐达“标签的超分子水杨酸产品。'},
+          {img:require('../assets/pro_3.png'),text:'维维豆奶是中国最大的豆奶企业，集团成立于1992年迄今为止28年历史。维维豆奶粉是经过先进技术生产的，具有营养丰富，合理平衡的食品。'},
+          {img:require('../assets/pro_4.png'),text:'A股上市企业旗下女性时尚运动品牌，邀请意大利设计师设计，国内顶级供应链，定位中高端女性健身服市场。'},
+          {img:require('../assets/pro_5.png'),text:'杭州市西湖环境集团开展的公共服务项目，意在倡导居民们实行垃圾分类，并为其提供对应基础服务。'},
+          {img:require('../assets/pro_6.png'),text:'澳洲品牌totalpet，由两位行业经验丰富的动物学和农业专家创立，主要致力于帮助宠物达成一生的福祉，她们利用行业内40多年的经验，研发了一系列宠物保健产品，在澳洲广受好评。'},
+        ],
+        2:[
+          {img:require('../assets/pro_1.png'),text:''},
+          {img:require('../assets/pro_2.png'),text:''},
+          {img:require('../assets/pro_3.png'),text:''},
+          {img:require('../assets/pro_4.png'),text:''},
+          {img:require('../assets/pro_5.png'),text:''},
+          {img:require('../assets/pro_6.png'),text:''},
+        ],
+        3:[
+          {img:require('../assets/pro_1.png'),text:''},
+          {img:require('../assets/pro_2.png'),text:''},
+          {img:require('../assets/pro_3.png'),text:''},
+          {img:require('../assets/pro_4.png'),text:''},
+          {img:require('../assets/pro_5.png'),text:''},
+          {img:require('../assets/pro_6.png'),text:''},
+        ]
+        
+      }
     }
   },
+  mounted(){
+  
+  },
   computed:{
-    ...mapGetters(['navflag'])
+    ...mapGetters(['navflag','languagetype'])
   },
   methods:{
-     ...mapActions(['setnavflagAsy'])
+     ...mapActions(['setnavflagAsy','setlanguagetypeAsy'])
   },
  
 }
@@ -131,9 +229,16 @@ export default {
         width 30px;   
         margin-top 10px;    
   .lau
+    width 200px;
+    background white;
     position absolute;
-    top 42.5px;
-    width 100%;
+    top 42px;
+    right 0;
+    span
+      width 50px;
+      text-align center;
+      display inline-block;
+      color #333333;
   .slogan
     width:424px;
     font-size:30px;
@@ -245,7 +350,7 @@ export default {
         img
           width 40px;
           margin-bottom 10px;
-  .panter
+  .Partner
     width 1050px;
     margin 0 auto;
     font-size 12px;

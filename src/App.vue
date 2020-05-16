@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+import {mapGetters,mapActions} from 'vuex';
 import navigation from './views/navigation'
 import Footer from './views/Footer'
 
@@ -18,27 +18,16 @@ export default {
     computed:{
          ...mapGetters(['navflag'])
     },
-    watch:{
-        // $route(to){ 
-        //     console.log(to)
-        //     let { path } = to
-        //     switch(path){
-        //         case '/home':
-        //         document.body.style.height = '3750px';
-        //         break;
-        //     }
-        // }
-    },
     mounted(){
-        //console.log($)
-        //console.log(this.$route)
+      let languagetype = sessionStorage.getItem('languagetype') || 1;
+      this.setlanguagetypeAsy(languagetype)
     },
     components:{
        navigation,
        Footer
     },
     methods:{
-      // ...mapActions(['setnavflagAsy'])
+      ...mapActions(['setlanguagetypeAsy'])
     }
 }
 </script>

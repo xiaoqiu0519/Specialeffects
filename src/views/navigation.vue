@@ -7,7 +7,7 @@
             <div class="navlist">
                 <div class="conta">
                     <div class="slogan"><img src="../assets/lacrae.png" alt="" srcset=""></div>
-                    <div :class="setClass(index)" v-for='(list,index) in navArr' :key="index">{{list}}</div>
+                    <div :class="setClass(index)" v-for='(list,index) in navArr[languagetype]' :key="index">{{list}}</div>
                 </div>
             </div>
         </div>
@@ -19,17 +19,34 @@ export default {
     data(){
         return{
             enterflag:true,
-            navArr:[
-                '首页',
-                '关于我们',
-                '营销方案',
-                '案例展示',
-                '联系我们'
-            ]
+            navArr:{
+                1:[
+                    '首页',
+                    '关于我们',
+                    '营销方案',
+                    '案例展示',
+                    '联系我们'
+                ],
+                2:[
+                    '',
+                    '',
+                    '',
+                    '',
+                    ''
+                ],
+                3:[
+                    '',
+                    '',
+                    '',
+                    '',
+                    ''
+                ]
+                
+            }
         }
     },
     computed:{
-        ...mapGetters(['navflag'])
+        ...mapGetters(['navflag','languagetype'])
     },
     components:{
        

@@ -1,12 +1,13 @@
 <template>
   <div class="paroduct">
-    <img :src="promes.bg" v-if="1" alt="" srcset="">
+    <img class="bg" :src="promes.bg" v-if="1" alt="" srcset="">
     <div class="content">
       <div class="logo">
         <img :src="promes.logo" alt="" srcset="">
       </div>
-      <div class="list">
-        <div></div>
+      <div class="list" v-for="(list,index) in promes.listdata" :key="index">
+        <div class="title">{{list.title}}</div>
+        <div class="con" v-for="(item,q) in list.content" :key="q">{{item}}</div>
       </div>
     </div>
   </div>
@@ -32,6 +33,13 @@ export default {
               '明确品牌受众，从而针对该类人群完善生产设计供应链，对新产品进行针对性宣传推广；',
               '梳理品牌逻辑，为品牌指定中国电商策略雏形，市场推广策划，并为品牌在中国开设了第一家企业直属网店，我们短期目标制定在开启天猫旗舰店，长期目标定为5年之内成为中国具有声量的鞋服品牌。'
             ]
+          },{
+            title:"成绩",
+            content:[
+              '6大明星产品植入；',
+              '协助品牌入住4大电商平台；',
+              '解决物流和客服后台服务。'                 
+            ]
           }
         ]
       }
@@ -45,14 +53,31 @@ export default {
   height 810px;
   position relative;
   overflow hidden;
-  img
+  color #231815;
+  font-size 14px;
+  .bg
     width 100%;
     height 810px;
   .content
-    width 50%;
+    width 40%;
+    padding 0 5%;
     height 100%;
     position absolute;
     right 0;
     top 0;
-    background rgba(256,256,256,0.5)  
+    background rgba(256,256,256,0.7) ;
+    .logo
+      margin-top 80px;
+      margin-bottom 20px;
+      img
+        width 120px; 
+    .list
+      .title
+        width 100px;
+        height 30px;
+        line-height 30px;
+        text-align center;
+        background red;
+      .con
+        line-height 27px;      
 </style>
