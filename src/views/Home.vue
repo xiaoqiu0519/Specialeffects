@@ -1,6 +1,10 @@
 <template>
   <div class="home">
     <div class="lau">中 | En | 日</div>
+    <div class="menu" @click="setnavflagAsy(1)" v-if="!navflag">
+        <img src="../assets/meun.png" alt="" srcset="">
+        <p>menu</p>
+    </div>
     <div class="slogan">致力于一切和“美”有关的事业</div>
     <div class="bg-1">
       <img class="left" src="../assets/bg-1.png" alt="" srcset="">
@@ -29,12 +33,44 @@
         </div>
       </div>
     </div>
+    <div class="panter">
+      <div class="title">
+        <p>我们的合作伙伴</p>
+        <p>Lacrae（乐科锐）与所有主要的线上和线下销售渠道 </p>
+        <p>和营销平台建立了牢固的合作关系。</p>
+      </div>
+      <div class="panter_list left">
+        <img src="../assets/xinlang.png" alt="" srcset="">
+        <img src="../assets/weixin.png" alt="" srcset="">
+        <img src="../assets/douyin.png" alt="" srcset="">
+        <img src="../assets/kuaishou.png" alt="" srcset="">
+        <img src="../assets/alibaba.png" alt="" srcset="">
+      </div>
+      <div class="panter_list right">
+        <img src="../assets/baidu.png" alt="" srcset="">
+        <img src="../assets/youku.png" alt="" srcset="">
+        <img src="../assets/jingdong.png" alt="" srcset="">
+        <img src="../assets/xiaohongshu.png" alt="" srcset="">
+        <img src="../assets/zhihu.png" alt="" srcset="">
+      </div>
+    </div>
+    <div class="product">
+      <div class="title">案例展示</div>
+      <div class="content">
+        <div class="list" v-for="(list,index) in prolist" :key="index">
+          <img :src="list.img" alt="">
+          <p>{{list.text}}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import {mapActions ,mapGetters} from 'vuex';
 export default {
+  name: 'Home',
   data(){
     return{
       tipArr:[
@@ -54,17 +90,46 @@ export default {
           img:require('../assets/tip4.png'),
           txt:'市场支持'
         }
+      ],
+      prolist:[
+        {img:require('../assets/pro_1.png'),text:'TasmanUGG是澳洲本土的UGG品牌，TASMAN一词取自于澳大利亚，NIA的第一位登陆者AbelTASMA，覆盖UGG真皮鞋具，时尚服饰和饰品，以及休闲产品线。'},
+        {img:require('../assets/pro_2.png'),text:'博乐达是一个专业护肤品品牌，自成立以来专注于皮肤修复，祛痘控油等领域，采用缓控释超分子水杨酸专利技术，研发了一系列具有“博乐达“标签的超分子水杨酸产品。'},
+        {img:require('../assets/pro_3.png'),text:'维维豆奶是中国最大的豆奶企业，集团成立于1992年迄今为止28年历史。维维豆奶粉是经过先进技术生产的，具有营养丰富，合理平衡的食品。'},
+        {img:require('../assets/pro_4.png'),text:'A股上市企业旗下女性时尚运动品牌，邀请意大利设计师设计，国内顶级供应链，定位中高端女性健身服市场。'},
+        {img:require('../assets/pro_5.png'),text:'杭州市西湖环境集团开展的公共服务项目，意在倡导居民们实行垃圾分类，并为其提供对应基础服务。'},
+        {img:require('../assets/pro_6.png'),text:'澳洲品牌totalpet，由两位行业经验丰富的动物学和农业专家创立，主要致力于帮助宠物达成一生的福祉，她们利用行业内40多年的经验，研发了一系列宠物保健产品，在澳洲广受好评。'},
       ]
     }
   },
-  name: 'Home',
+  computed:{
+    ...mapGetters(['navflag'])
+  },
+  methods:{
+     ...mapActions(['setnavflagAsy'])
+  },
+ 
 }
 </script>
 <style lang="stylus" scoped>
 .home
-  height 100%;
   padding-top 264px;
   position relative;
+  .menu
+    width 50px;
+    height 50px;
+    position absolute;
+    top 200px;
+    right 100px;
+    z-index 10;
+    text-align center;
+    font-size:14px;
+    font-family:Source Han Sans SC;
+    font-weight:500
+    color white;
+    cursor pointer;
+    img
+        width 30px;   
+        margin-top 10px;    
   .lau
     position absolute;
     top 42.5px;
@@ -78,31 +143,31 @@ export default {
     margin 0 auto;
   .bg-1
     width 100%;
-    height 217px;
+    height 250px;
     margin-top 316px;
     img
-      width 157px;
+      height 250px;
     .left
       float left;
     .right
       float right;  
     .content
       margin-top 5px;
-      width 590px;
-      height 206px;  
+      width 720px;
+      height 250px;  
       margin 0 auto;
-      background-image url('../assets/about.png') 
+      background-image url('../assets/about1.png') 
       background-size auto 100%;
       background-repeat no-repeat;
       position relative;
       font-size 0;
       .list
-        width 298px;
-        margin-top 50px;
+        width 430px;
+        margin-top 64px;
         float left;
-        margin-left 55px;
+        margin-left 45px;
         margin-right 108px;
-        font-size:8px;
+        font-size:12px;
         font-family:Source Han Sans SC;
         font-weight:400;
         color:rgba(100,100,100,1);
@@ -115,7 +180,7 @@ export default {
           font-size:30px;
           family:Source Han Sans SC;
           font-weight:800;
-          margin-top 65px;
+          margin-top 90px;
           margin-bottom 15px;
         .more
           width:50px;
@@ -132,7 +197,7 @@ export default {
     margin 0 auto;
     border 1px solid white;
     border-radius 150px;  
-    margin-top 120px;  
+    margin-top 200px;  
     position relative;
     overflow hidden;
     div
@@ -161,23 +226,83 @@ export default {
         display inline-block;
         cursor pointer;
     .right
-      width 365px;
+      width 375px;
       background white;
       height 100%;
-      padding-left 50px;
+      padding-left 40px;
       div
-        width 50px;
+        width 80px;
         height 58px;
         float left;
-        font-size:8px;
+        font-size:12px;
         font-family:Source Han Sans SC;
         font-weight:400;
         color:rgba(100,100,100,1);
         line-height:16px;
         text-align center;
-        margin-top 103px;
-        margin-right 30px;
+        margin-top 97px;
+        margin-right 10px;
         img
           width 40px;
-
+          margin-bottom 10px;
+  .panter
+    width 1050px;
+    margin 0 auto;
+    font-size 12px;
+    margin-top 200px;
+    .title
+      text-align center;
+      &>p:nth-child(1)
+        font-size 30px;
+        color white;
+        font-weight 600;
+        margin-bottom 26px;
+      &>p:nth-child(2)
+        margin-bottom 6px;
+      img
+        width 162px;   
+    .left
+      text-align left ;
+      margin-top 55px;
+    .right
+      text-align right;
+  .product
+    width 100%;
+    margin-top 100px;
+    clear both;
+    overflow hidden;
+    background url('../assets/zhanshi.png') no-repeat;
+    background-size 100% auto;  
+    .title
+      width 900px;
+      margin 0 auto;
+      font-size 28px;
+      font-weight 900;
+      text-align center;
+      color black;   
+      margin-top 40px; 
+      margin-bottom 30px;
+    .content
+      width 960px;
+      clear both;
+      overflow hidden;
+      margin 0 auto;  
+      .list
+        width 300px;
+        height 460px;
+        margin 20px 10px 0;
+        float left;
+        background white;
+        border-radius 12px;
+        p
+          width 280px;
+          padding 0 14px;
+          font-size:16px;
+          font-family:Source Han Sans SC;
+          color:rgba(100,100,100,1);
+          line-height:24px
+        img
+          width 300px;
+          height 300px;
+          margin-bottom 20px;
 </style>

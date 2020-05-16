@@ -26,7 +26,7 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
     <script>
-        document.body.style.minHeight = window.screen.height + 'px'
+        document.body.style.height = '5000px'
     </script>
 </body>
 
@@ -34,12 +34,14 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.ripples.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('body').ripples({
-            resolution: 100,
-            dropRadius: 220,
-            perturbance: 0.03,
+    setTimeout(() => {
+        $(document).ready(function() {
+            $('body').ripples({
+                resolution: 80,
+                dropRadius: 250,
+                perturbance: 0.03,
 
+            });
         });
-    });
+    }, 1000)
 </script>

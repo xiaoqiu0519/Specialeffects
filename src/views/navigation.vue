@@ -23,7 +23,6 @@ export default {
                 '首页',
                 '关于我们',
                 '营销方案',
-                '营销方案',
                 '案例展示',
                 '联系我们'
             ]
@@ -146,13 +145,13 @@ export default {
                 margin-bottom 16px;
                 cursor pointer;
                 line-height 1;
-                font-size:9px;
+                font-size:16px;
                 font-family:Source Han Sans SC;
                 &:hover
                     opacity 0.5;
             .slogan
                 margin-bottom 47px;
                 img 
-                    width 80px; 
+                    width 120px; 
                        
 </style>

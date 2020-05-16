@@ -1,46 +1,60 @@
 <template>
   <div id="app">
     <router-view/>
-    <div class="menu" @click="setnavflagAsy(1)" v-if="!navflag">
-        <img src="../src/assets/meun.png" alt="" srcset="">
-        <p>menu</p>
-    </div>
     <transition-group name="opacityanimate">
       <navigation :key="1" v-if="navflag"/>
     </transition-group>
     <Footer/>
+    <!-- <div class="shadebox"></div> -->
   </div>
 </template>
 
 <script>
-import {mapActions ,mapGetters} from 'vuex';
+import {mapGetters} from 'vuex';
 import navigation from './views/navigation'
 import Footer from './views/Footer'
 
 export default {
     computed:{
-        ...mapGetters(['navflag'])
+         ...mapGetters(['navflag'])
+    },
+    watch:{
+        // $route(to){ 
+        //     console.log(to)
+        //     let { path } = to
+        //     switch(path){
+        //         case '/home':
+        //         document.body.style.height = '3750px';
+        //         break;
+        //     }
+        // }
     },
     mounted(){
         //console.log($)
+        //console.log(this.$route)
     },
     components:{
        navigation,
        Footer
     },
     methods:{
-      ...mapActions(['setnavflagAsy'])
+      // ...mapActions(['setnavflagAsy'])
     }
 }
 </script>
 <style lang="stylus">
+@keyframes opcity1 {
+    0% {opacity :0;}
+    100% {opacity:1};
+}
 #app
-  width: 1200px;
+  //width: 1200px;
   margin 0 auto;
   font-family Avenir, Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   font-size 14px;     
+  animation opcity1 0.5s;
   .opacityanimate-enter,.opacityanimate-leave-to{
     opacity: 0;
   }
@@ -50,6 +64,13 @@ export default {
   .opacityanimate-enter-active,.opacityanimate-leave-active{
     transition: all 1.5s;
   }       
+  .shadebox
+    width 100%;
+    height 100%;
+    background rgba(0,0,0,0.5);
+    position fixed;
+    left 0;
+    top 0;
   .menu
     width 50px;
     height 50px;
@@ -58,12 +79,12 @@ export default {
     right 100px;
     z-index 10;
     text-align center;
-    font-size:10px;
+    font-size:14px;
     font-family:Source Han Sans SC;
     font-weight:500
     color white;
     cursor pointer;
     img
-        width 25px;   
+        width 30px;   
         margin-top 10px;             
 </style>

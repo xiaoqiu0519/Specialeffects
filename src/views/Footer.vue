@@ -46,21 +46,29 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+@keyframes opcity2 {
+    0% {opacity :0;}
+    100% {opacity:1};
+}
 .footer
   width 90%;
   height 340px;
   padding 0 5%;
   margin 0 auto;
+  margin-top 150px;
+  animation opcity2 1s;
   .list
-    width 30%;
+    width 33.33333%;
     float left;
     height 340px;
     text-align center;
     font-size:24px;
     .list_img
-      width 83px;
-      height 83px;
+      text-align center;
       margin-bottom 18px;
+      img
+        width 83px;
+        height 83px;
     .country
       margin-bottom 21px;
       font-family:Source Han Sans SC;
