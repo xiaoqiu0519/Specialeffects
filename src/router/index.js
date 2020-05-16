@@ -14,6 +14,10 @@ const routes = [{
     path: '/aboutus',
     name: 'AboutUs',
     component: resolve => (require(["@/views/aboutus"], resolve))
+}, {
+    path: '/product',
+    name: 'Product',
+    component: resolve => (require(["@/views/product"], resolve))
 }, ]
 
 const router = new VueRouter({
