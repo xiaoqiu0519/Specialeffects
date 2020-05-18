@@ -45,6 +45,14 @@ export default {
       }
     }
   },
+  mounted(){
+    //setTimeout(()=>{
+      console.log(document.getElementsByTagName('canvas')[0])
+      document.getElementsByTagName('canvas')[0].setAttribute('height','1350')
+    //},1100)
+    
+    //document.getElementsByTagName('canvas')[0].setAttribute('height') = '1350px'
+  }
 }
 </script>
 <style lang="stylus" scoped>

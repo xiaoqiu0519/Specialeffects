@@ -5,6 +5,7 @@ Vue.use(VueRouter)
 const routes = [{
     path: '/',
     redirect: '/home',
+    name: 'Home',
     component: resolve => (require(["@/views/Home"], resolve))
 }, {
     path: '/home',
@@ -15,27 +16,45 @@ const routes = [{
     name: 'AboutUs',
     component: resolve => (require(["@/views/aboutus"], resolve))
 }, {
-    path: '/product',
+    path: '/product/:id',
     name: 'Product',
     component: resolve => (require(["@/views/product"], resolve))
 }, ]
 
 const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes,
-})
-router.afterEach((to) => {
-    window.scrollTo(0, 0);
-    let { path } = to;
-    console.log(to)
-    switch (path) {
-        case '/home':
-        case '/':
-            document.body.style.height = '3750px';
-            break;
-    }
-})
+        mode: 'hash',
+        base: process.env.BASE_URL,
+        routes,
+    })
+    // router.afterEach((to) => {
+    //     let { name } = to;
+    //     console.log(to.name)
+    //     switch (name) {
+    //         case 'Home':
+    //             setTimeout(() => {
+    //                 document.body.style.height = '3750px';
+    //             }, 100)
+    //             break;
+    //         case 'Product':
+    //             setTimeout(() => {
+    //                 document.body.style.height = '1350px';
+    //             }, 100)
+    //             break;
+    //         case 'AboutUs':
+    //             setTimeout(() => {
+    //                 document.body.style.height = '1000px';
+    //             }, 100)
+
+//             break;
+//     }
+// })
+// router.afterEach(route => {
+//     console.log(route)
+//         //document.getElementsByTagName('canvas')[0].setAttribute('height') = '1350px'
+//         //console.log(document.getElementsByTagName('canvas').getAttribute)
+
+
+// })
 
 
 export default router

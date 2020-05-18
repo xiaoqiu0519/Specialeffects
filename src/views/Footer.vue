@@ -115,15 +115,13 @@ export default {
 }
 .footer
   width 90%;
-  height 340px;
+  height 280px;
   padding 0 5%;
   margin 0 auto;
-  margin-top 150px;
   animation opcity2 1s;
   .list
     width 33.33333%;
     float left;
-    height 340px;
     text-align center;
     font-size:24px;
     .list_img

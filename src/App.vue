@@ -22,6 +22,13 @@ export default {
       let languagetype = sessionStorage.getItem('languagetype') || 1;
       this.setlanguagetypeAsy(languagetype)
     },
+    watch:{
+      $route(){
+        //console.log(to.path);
+       // console.log(document.getElementsByTagName('canvas'))
+       // document.getElementsByTagName('canvas')[0].setAttribute('height') = '1350px'
+      }
+    },
     components:{
        navigation,
        Footer

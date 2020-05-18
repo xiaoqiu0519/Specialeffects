@@ -26,22 +26,27 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
     <script>
-        document.body.style.height = '5000px'
+        // document.body.style.height = '1000px'
     </script>
 </body>
 
 </html>
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.ripples.js"></script>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/jquery.ripples.js"></script>
 <script type="text/javascript">
-    setTimeout(() => {
-        $(document).ready(function() {
-            $('body').ripples({
-                resolution: 80,
-                dropRadius: 250,
-                perturbance: 0.03,
+    //setTimeout(() => {
+    $(document).ready(function() {
+        // $('body').ripples({
+        //     resolution: 80,
+        //     dropRadius: 250,
+        //     perturbance: 0.03,
 
-            });
+        // });
+        $('body').ripples({
+            resolution: 512,
+            dropRadius: 20, //px
+            perturbance: 0.04,
         });
-    }, 1000)
+    });
+    //}, 500)
 </script>
