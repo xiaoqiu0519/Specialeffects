@@ -1,19 +1,30 @@
 <template>
     <div class="aboutus">
         <div class="content">
+            <img v-if="languagetype == 1" src="../assets/about_us_detail_ch.png" alt="" srcset="">
+            <img v-else-if="languagetype == 2" src="../assets/about_us_detail_en.png" alt="" srcset="">
+            <img v-else-if="languagetype == 3" src="../assets/about_us_detail_jp.png" alt="" srcset="">
         </div>
+        <Footer></Footer>
     </div>
 </template>
 <script>
+import Footer from '../views/Footer'
+import {mapGetters} from 'vuex';
 export default {
-    
+    components:{
+        Footer
+    },
+    computed:{
+        ...mapGetters(['languagetype'])
+    }
 }
 </script>
 <style lang="stylus" scoped>
 .content
     width 100%;
-    height 800px;
-    background url('../assets/ab_bg_2.png') no-repeat;
-    background-size 90% auto;
-    background-position right top;
+    img 
+        width 100%;
+        position relative;
+        top -2px;
 </style>

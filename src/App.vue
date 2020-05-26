@@ -1,37 +1,22 @@
 <template>
   <div id="app">
     <router-view/>
-    <transition-group name="opacityanimate">
-      <navigation :key="1" v-if="navflag"/>
-    </transition-group>
-    <Footer/>
-    <!-- <div class="shadebox"></div> -->
   </div>
 </template>
 
 <script>
-import {mapGetters,mapActions} from 'vuex';
-import navigation from './views/navigation'
-import Footer from './views/Footer'
-
+import {mapActions} from 'vuex';
 export default {
     computed:{
-         ...mapGetters(['navflag'])
+         
     },
     mounted(){
       let languagetype = sessionStorage.getItem('languagetype') || 1;
       this.setlanguagetypeAsy(languagetype)
     },
-    watch:{
-      $route(){
-        //console.log(to.path);
-       // console.log(document.getElementsByTagName('canvas'))
-       // document.getElementsByTagName('canvas')[0].setAttribute('height') = '1350px'
-      }
-    },
+    
     components:{
-       navigation,
-       Footer
+       
     },
     methods:{
       ...mapActions(['setlanguagetypeAsy'])
@@ -39,10 +24,7 @@ export default {
 }
 </script>
 <style lang="stylus">
-@keyframes opcity1 {
-    0% {opacity :0;}
-    100% {opacity:1};
-}
+
 #app
   //width: 1200px;
   margin 0 auto;
@@ -50,37 +32,12 @@ export default {
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   font-size 14px;     
-  animation opcity1 0.5s;
-  .opacityanimate-enter,.opacityanimate-leave-to{
-    opacity: 0;
-  }
-  .opacityanimate-enter-to,.opacityanimate-leave{
-    opacity: 1;
-  }
-  .opacityanimate-enter-active,.opacityanimate-leave-active{
-    transition: all 1.5s;
-  }       
+  animation opcity1 0.5s;      
   .shadebox
     width 100%;
     height 100%;
     background rgba(0,0,0,0.5);
     position fixed;
     left 0;
-    top 0;
-  .menu
-    width 50px;
-    height 50px;
-    position absolute;
-    top 200px;
-    right 100px;
-    z-index 10;
-    text-align center;
-    font-size:14px;
-    font-family:Source Han Sans SC;
-    font-weight:500
-    color white;
-    cursor pointer;
-    img
-        width 30px;   
-        margin-top 10px;             
+    top 0;       
 </style>

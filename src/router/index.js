@@ -16,9 +16,25 @@ const routes = [{
     name: 'AboutUs',
     component: resolve => (require(["@/views/aboutus"], resolve))
 }, {
-    path: '/product/:id',
+    path: '/aboutush5',
+    name: 'AboutUsh5',
+    component: resolve => (require(["@/views/aboutush5"], resolve))
+}, {
+    path: '/questent',
+    name: 'Questent',
+    component: resolve => (require(["@/views/questent"], resolve))
+}, {
+    path: '/questenth5',
+    name: 'QuestentH5',
+    component: resolve => (require(["@/views/questenth5"], resolve))
+}, {
+    path: '/product/id/:id',
     name: 'Product',
     component: resolve => (require(["@/views/product"], resolve))
+}, {
+    path: '/prodetail/id/:id',
+    name: 'Prodetail',
+    component: resolve => (require(["@/views/prodetail"], resolve))
 }, ]
 
 const router = new VueRouter({

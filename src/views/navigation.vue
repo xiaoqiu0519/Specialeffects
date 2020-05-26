@@ -7,7 +7,7 @@
             <div class="navlist">
                 <div class="conta">
                     <div class="slogan"><img src="../assets/lacrae.png" alt="" srcset=""></div>
-                    <div :class="setClass(index)" v-for='(list,index) in navArr[languagetype]' :key="index">{{list}}</div>
+                    <div :class="setClass(index)" @click="dddd(index)" v-for='(list,index) in navArr[languagetype]' :key="index">{{list}}</div>
                 </div>
             </div>
         </div>
@@ -21,25 +21,25 @@ export default {
             enterflag:true,
             navArr:{
                 1:[
-                    '首页',
                     '关于我们',
                     '营销方案',
+                    '合作伙伴',
                     '案例展示',
                     '联系我们'
                 ],
                 2:[
-                    '',
-                    '',
-                    '',
-                    '',
-                    ''
+                    'About Lacrae',
+                    'Marketing Plan',
+                    'Partners',
+                    'Case Study',
+                    'Contanct Us'
                 ],
                 3:[
-                    '',
-                    '',
-                    '',
-                    '',
-                    ''
+                    'Laraeについて',
+                    'サービス内容',
+                    'Laraeのパートナー',
+                    'コンサルティング事例',
+                    'お問い合わせ'
                 ]
                 
             }
@@ -63,6 +63,12 @@ export default {
             let obj = {list:true}
             obj['animateleft'+value] = true;
             return obj;
+        },
+        dddd(index){
+            window.scrollTo({ 
+                top: 500 * (index+1), 
+                behavior: "smooth" 
+            })    
         }
     }
 }

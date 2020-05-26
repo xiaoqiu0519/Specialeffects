@@ -7,7 +7,8 @@ export default new Vuex.Store({
     state: {
         loading: false,
         navflag: false,
-        languagetype: '1',
+        showflag: false,
+        languagetype: 1,
     },
     getters: {
         getloading(state) {
@@ -15,6 +16,9 @@ export default new Vuex.Store({
         },
         navflag(state) {
             return state.navflag
+        },
+        showflag(state) {
+            return state.showflag
         },
         languagetype(state) {
             return state.languagetype
@@ -28,6 +32,9 @@ export default new Vuex.Store({
         setnavflag(state, flag) {
             return state.navflag = flag;
         },
+        setshowflag(state, flag) {
+            return state.showflag = flag;
+        },
         setlanguagetype(state, str) {
             return state.languagetype = str
         }
@@ -40,8 +47,12 @@ export default new Vuex.Store({
         setnavflagAsy(context, flag) {
             context.commit('setnavflag', flag)
         },
+        setshowflagAsy(context, flag) {
+            context.commit('setshowflag', flag)
+        },
         setlanguagetypeAsy(context, str) {
             context.commit('setlanguagetype', str)
+            sessionStorage.setItem('languagetype', str)
         }
     },
     modules: {}

@@ -1,7 +1,8 @@
 <template>
   <div class="paroduct">
-    <img class="bg" :src="promes.bg" v-if="1" alt="" srcset="">
+    <!-- <img class="bg" :src="promes.bg" v-if="1" alt="" srcset=""> -->
     <div class="content">
+    <!--
       <div class="logo">
         <img :src="promes.logo" alt="" srcset="">
       </div>
@@ -9,10 +10,14 @@
         <div class="title">{{list.title}}</div>
         <div class="con" v-for="(item,q) in list.content" :key="q">{{item}}</div>
       </div>
+    -->  
+      <img src="../assets/product_12345.jpg" alt="" srcset="">
     </div>
+    <Footer></Footer>
   </div>
 </template>
 <script>
+import Footer from '../views/Footer'
 export default {
   data(){
     return{
@@ -45,10 +50,13 @@ export default {
       }
     }
   },
+  components:{
+    Footer
+  },
   mounted(){
     //setTimeout(()=>{
-      console.log(document.getElementsByTagName('canvas')[0])
-      document.getElementsByTagName('canvas')[0].setAttribute('height','1350')
+     // console.log(document.getElementsByTagName('canvas')[0])
+      //document.getElementsByTagName('canvas')[0].setAttribute('height','1350')
     //},1100)
     
     //document.getElementsByTagName('canvas')[0].setAttribute('height') = '1350px'
@@ -58,34 +66,13 @@ export default {
 <style lang="stylus" scoped>
 .paroduct
   width 100%;
-  height 810px;
+  //height 810px;
   position relative;
   overflow hidden;
   color #231815;
   font-size 14px;
-  .bg
-    width 100%;
-    height 810px;
   .content
-    width 40%;
-    padding 0 5%;
-    height 100%;
-    position absolute;
-    right 0;
-    top 0;
-    background rgba(256,256,256,0.7) ;
-    .logo
-      margin-top 80px;
-      margin-bottom 20px;
-      img
-        width 120px; 
-    .list
-      .title
-        width 100px;
-        height 30px;
-        line-height 30px;
-        text-align center;
-        background red;
-      .con
-        line-height 27px;      
+    img
+      width 100%;
+      //height 810px;
 </style>
