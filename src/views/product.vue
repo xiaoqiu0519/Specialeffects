@@ -24,7 +24,7 @@ export default {
   },
   mounted(){
     //if(document.getElementsByTagName('canvas')){
-      document.getElementsByTagName('canvas')[0].height = document.body.offsetHeight 
+      //document.getElementsByTagName('canvas')[0].height = document.body.offsetHeight 
     //}
     this.id = this.$route.params.id
     var str = '_ch_';

@@ -67,7 +67,7 @@
             <p class="lineslide"></p>
         </div>
         <footerh5></footerh5>
-        <navigationh5 v-show="showflag"></navigationh5>
+        <navigationh5 v-if="showflag"></navigationh5>
     </div>
 </template>
 <script>

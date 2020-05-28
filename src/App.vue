@@ -26,7 +26,6 @@ export default {
 <style lang="stylus">
 
 #app
-  //width: 1200px;
   margin 0 auto;
   font-family Avenir, Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
@@ -39,5 +38,5 @@ export default {
     background rgba(0,0,0,0.5);
     position fixed;
     left 0;
-    top 0;       
+    top 0;         
 </style>

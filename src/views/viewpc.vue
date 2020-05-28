@@ -128,7 +128,7 @@ export default {
   },
   mounted(){
     //if(document.getElementsByTagName('canvas')){
-      document.getElementsByTagName('canvas')[0].height = document.body.offsetHeight 
+      //document.getElementsByTagName('canvas')[0].height = document.body.offsetHeight 
     //}
   },
   components:{
@@ -218,7 +218,7 @@ export default {
     margin 0 auto;
     text-align center;
     img
-      width 100px;
+      width 0.3rem;
   .bg-1
     width 100%;
     height 0.7rem;

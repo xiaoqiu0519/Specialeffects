@@ -1,5 +1,6 @@
 <template>
     <div class="nav"> 
+        <div class="bc" @click="closenav()"></div>
         <div :class="{content:true,enter:enterflag,out:!enterflag}">
             <div class="closeimg" @click="closenav()">
                 <img src="../assets/closeimg.png" alt="" srcset="">
@@ -135,6 +136,14 @@ export default {
     .out
         animation out 0.4s ease-in;
         margin-left 100%;
+    .bc
+        width 70%;
+        height 100%;
+        background transparent;    
+        position fixed;
+        left 0;
+        top 0;
+        z-index 11111
     .content
         width 30%;
         height 100%;

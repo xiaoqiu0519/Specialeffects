@@ -53,7 +53,7 @@ export default {
         }
     },
     computed:{
-        ...mapGetters(['navflag','languagetype'])
+        ...mapGetters(['languagetype'])
     },
     components:{
        

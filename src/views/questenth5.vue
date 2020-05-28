@@ -2,31 +2,31 @@
     <div class="questenth5">
         <div class="top" @click="goindex()"><img src="../assets/fanhui.png" alt="" srcset="">{{back[languagetype]}}</div>
         <div class="list list1">
-            <div class="title">{{listobj.list1[languagetype]}}</div>
+            <div class="title" v-html="listobj.list1[languagetype]"></div>
             <img v-if="languagetype == 1"  class="listimg" src="../assets/qwes_h5_cn_1.png" alt="">
             <img v-else-if="languagetype == 2" class="listimg" src="../assets/qwes_h5_en_1.png" alt="">
             <img v-else-if="languagetype == 3" class="listimg" src="../assets/qwes_h5_jp_1.png" alt="">
         </div>
         <div class="list list2">
-            <div class="title">{{listobj.list2[languagetype]}}</div>
+            <div class="title" v-html="listobj.list2[languagetype]"></div>
             <img v-if="languagetype == 1"  class="listimg" src="../assets/qwes_h5_cn_2.png" alt="">
             <img v-else-if="languagetype == 2" class="listimg" src="../assets/qwes_h5_en_2.png" alt="">
             <img v-else-if="languagetype == 3" class="listimg" src="../assets/qwes_h5_jp_2.png" alt="">
         </div>
         <div class="list list3">
-            <div class="title">{{listobj.list3[languagetype]}}</div>
+            <div class="title" v-html="listobj.list3[languagetype]"></div>
             <img v-if="languagetype == 1"  class="listimg" src="../assets/qwes_h5_cn_3.png" alt="">
             <img v-else-if="languagetype == 2" class="listimg" src="../assets/qwes_h5_en_3.png" alt="">
             <img v-else-if="languagetype == 3" class="listimg" src="../assets/qwes_h5_jp_3.png" alt="">
         </div>
         <div class="list list4">
-            <div class="title">{{listobj.list4[languagetype]}}</div>
+            <div class="title" v-html="listobj.list4[languagetype]"></div>
             <img v-if="languagetype == 1"  class="listimg" src="../assets/qwes_h5_cn_4.png" alt="">
             <img v-else-if="languagetype == 2" class="listimg" src="../assets/qwes_h5_en_4.png" alt="">
             <img v-else-if="languagetype == 3" class="listimg" src="../assets/qwes_h5_jp_4.png" alt="">
         </div>
         <div class="list list5">
-            <div class="title">{{listobj.list5[languagetype]}}</div>
+            <div class="title" v-html="listobj.list5[languagetype]"></div>
             <div class="con">
                 <div v-for="(list,index) in serverlist[languagetype]" :key="index">
                     <img :src="list.img" alt="" srcset="">
@@ -66,7 +66,7 @@ export default {
                 },
                 list4:{
                 1:'销售和营销支持',
-                2:'Sales and Marketing support',
+                2:'Sales and <br> Marketing support',
                 3:'マーケティングサポート'
                 },
                 list5:{

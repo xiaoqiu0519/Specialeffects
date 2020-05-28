@@ -14,7 +14,7 @@
         <img v-else-if="languagetype == 3" src="../assets/questent_de_jp_2.png" alt="" srcset="">
       </div>
       <div class="list list3">
-        <div class="title" style="top:0.43rem" v-html="listobj.list3[languagetype]"></div>
+        <div class="title" style="top:0.44rem" v-html="listobj.list3[languagetype]"></div>
         <img v-if="languagetype == 1" src="../assets/questent_de_ch_3.png" alt="" srcset="">
         <img v-else-if="languagetype == 2" src="../assets/questent_de_en_3.png" alt="" srcset="">
         <img v-else-if="languagetype == 3" src="../assets/questent_de_jp_3.png" alt="" srcset="">
@@ -116,20 +116,20 @@ export default {
   },
   mounted(){
     //if(document.getElementsByTagName('canvas')){
-      document.getElementsByTagName('canvas')[0].height = document.body.offsetHeight 
+     // document.getElementsByTagName('canvas')[0].height = document.body.offsetHeight 
     //}
   }
 }
 </script>
 <style lang="stylus" scoped>
 .questent
-  width 3rem;
+  width 3.4rem;
   margin 0 auto;
   .con
     background url('../assets/left_line.png') no-repeat; 
     background-size 0.06rem auto;
     background-position 0 -20px;
-    width 3rem;
+    width 3.4rem;
     clear both;
     overflow hidden;
     padding-bottom 0.1rem;
