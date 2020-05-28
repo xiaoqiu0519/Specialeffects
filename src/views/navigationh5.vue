@@ -9,7 +9,13 @@
                     <div class="slogan"><img src="../assets/lacrae.png" alt="" srcset=""></div>
                     <div :class="setClass(index)" @click="dddd(index)" v-for='(list,index) in navArr[languagetype]' :key="index">{{list}}</div>
                 </div>
+                <div class="lau">
+                    <span :class="{activeclass:languagetype == 1}" @click="setlanguagetypeAsy(1)">中</span>
+                    <span :class="{line:true,activeclass:languagetype == 2}" @click="setlanguagetypeAsy(2)">EN</span>
+                    <span :class="{activeclass:languagetype == 3}" @click="setlanguagetypeAsy(3)">JP</span>
+                </div>
             </div>
+            
         </div>
     </div>
 </template>
@@ -56,7 +62,7 @@ export default {
         //window.addEventListener('scroll', this.menu)
     },
     methods:{
-        ...mapActions(['setshowflagAsy']),
+        ...mapActions(['setshowflagAsy','setlanguagetypeAsy']),
         closenav(){
             this.enterflag = false
             setTimeout(()=>{
@@ -72,50 +78,42 @@ export default {
             // this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
             // console.log(this.scroll)
         },
+        scrollAnimation(currentY, targetY) {
+            let needScrollTop = targetY - currentY
+            let _currentY = currentY
+            setTimeout(() => {
+                const dist = Math.ceil(needScrollTop / 10)
+                _currentY += dist
+                window.scrollTo(_currentY, currentY)
+                if (needScrollTop > 10 || needScrollTop < -10) {
+                    this.scrollAnimation(_currentY, targetY)
+                } else {
+                    window.scrollTo(_currentY, targetY)
+                }
+            }, 20)
+        },
         dddd(index){
             let m = 0;
             switch(index){
                 case 0:
-                    m=480;
+                    m = document.getElementsByClassName('aboutus')[0].offsetTop - 40;
                 break;
                 case 1:
-                    m=950
+                    m = document.getElementsByClassName('jiejue')[0].offsetTop - 40;
                 break;
                 case 2:
-                    m=1450
+                    m = document.getElementsByClassName('partner')[0].offsetTop - 40;
                 break;
                 case 3:
-                    m=1920
+                    m = document.getElementsByClassName('product')[0].offsetTop - 40;
                 break;
                 case 4:
-                    m=2300
+                    m=3000
                 break;
             }
-            console.log(m)
-            // let scroll = document.documentElement.scrollTop || document.body.scrollTop;
-            // var p =Math.abs(scroll - m)
-            // var timer ;
-            // if(scroll >= m){
-            //     timer = setInterval(()=>{
-            //         p -= 5;
-            //         if( p <= 0){
-            //             clearInterval(timer)
-            //         }
-            //         window.scrollTo({ top: scroll - p}) 
-            //     },10) 
-            // }else {
-            //     timer = setInterval(()=>{
-            //         p -= 5;
-            //         if( p <= 0){
-            //             clearInterval(timer)
-            //         }
-            //         window.scrollTo({ top: m + p}) 
-            //     },10) 
-            // }
-            
-            window.scrollTo({
-                top:m
-            })
+            document.getElementsByClassName('aboutus')[0].offsetTop 
+            let scroll = document.documentElement.scrollTop || document.body.scrollTop;
+            this.scrollAnimation(scroll,m)
             this.setshowflagAsy(0)
         }
     }
@@ -183,7 +181,25 @@ export default {
             width 100%;
             height 100%;
             display flex;
+            flex-wrap wrap;
             align-items center;
+            align-content center;
+            .lau
+                width 100%;
+                color #333333;
+                line-height 0.16rem;
+                margin-top 0.2rem;
+                margin-left 0.13rem;
+                span
+                    display inline-block;
+                    width 0.3rem;
+                    height 0.16rem;
+                    text-align center
+                .line
+                    border-right 1px solid #333333;
+                    border-left 1px solid #333333;
+                .activeclass
+                    color #E8560B;      
             .conta
                 
                 div

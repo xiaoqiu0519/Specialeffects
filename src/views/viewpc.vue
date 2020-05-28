@@ -1,15 +1,19 @@
 <template>
   <div class="home">
     <div class="lau">
-      <span @click="setlanguagetypeAsy(1)">中</span>|
-      <span @click="setlanguagetypeAsy(2)">En</span>|
-      <span @click="setlanguagetypeAsy(3)">JP</span>
+      <span :class="{activeclass:languagetype == 1}" @click="setlanguagetypeAsy(1)">中</span>|
+      <span :class="{activeclass:languagetype == 2}" @click="setlanguagetypeAsy(2)">En</span>|
+      <span :class="{activeclass:languagetype == 3}" @click="setlanguagetypeAsy(3)">JP</span>
     </div>
     <div class="menu" @click="setnavflagAsy(1)" v-if="!navflag">
         <img src="../assets/meun.png" alt="" srcset="">
         <p>menu</p>
     </div>
-    <div class="slogan">{{slogan[languagetype]}}</div>
+    <div class="slogan">
+      <img src="../assets/h5_logo.png" alt="" srcset="">
+      <br>
+      {{slogan[languagetype]}}
+    </div>
     <div class="bg-1">
       <img class="left" src="../assets/bg-1.png" alt="" srcset="">
       <img class="right" src="../assets/bg-1.png" alt="" srcset="">
@@ -47,7 +51,7 @@
       <div class="title">{{producttitle[languagetype]}}</div>
       <div class="content">
         <div class="list" v-for="(list,index) in prolist[languagetype]" :key="index">
-          <img :src="list.img" alt="" srcset="">
+          <img @click="gotoproduct(index)" :src="list.img" alt="" srcset="">
         </div>
       </div>
     </div>
@@ -123,7 +127,9 @@ export default {
     }
   },
   mounted(){
-    //document.getElementsByTagName('canvas')[0].setAttribute('height','3750')
+    //if(document.getElementsByTagName('canvas')){
+      document.getElementsByTagName('canvas')[0].height = document.body.offsetHeight 
+    //}
   },
   components:{
     navigation,
@@ -140,8 +146,8 @@ export default {
     gotoquestent(){
       this.$router.push('/questent')
     },
-    gotoproduct(list){
-      this.$router.push('/product/'+ list.id)
+    gotoproduct(index){
+      this.$router.push('/product/id/'+ (index+1))
     }
   },
  
@@ -165,14 +171,15 @@ export default {
     transition: all 1.5s;
   } 
   .menu
-    width 50px;
-    height 50px;
-    position absolute;
-    top 200px;
-    right 100px;
+    width 0.2rem;
+    height 0.2rem;
+    position fixed;
+    top 50%;
+    margin-top -0.1rem;
+    right 0.33rem;
     z-index 10;
     text-align center;
-    font-size:14px;
+    font-size:0.05rem;
     font-family:Source Han Sans SC;
     font-weight:500
     color white;
@@ -181,22 +188,27 @@ export default {
         width 30px;   
         margin-top 10px;    
   .lau
-    width 120px;
-    padding-right 30px;
-    height 30px;
-    line-height 30px;
+    width 0.5rem;
+    padding-right 0.1rem;
+    height 0.1rem;
+    line-height 0.1rem;
     background white;
     position absolute;
-    top 42px;
+    top 0.14rem;
     right 0;
     text-align right ;
     color #333333;
-    border-radius 0 0 0 15px;
+    border-radius 0 0 0 0.05rem;
+    font-size 0.06rem;
+    box-shadow: 0px 1px 4px rgba(0,0,0,0.3),
+				0px 0px 20px rgba(0,0,0,0.1) inset;
     span
-      width 30px;
+      width 0.12rem;
       text-align center;
       display inline-block;
       cursor pointer;
+    .activeclass
+      color #E8560B;  
   .slogan
     width:2rem;
     font-size:0.1rem;
@@ -205,6 +217,8 @@ export default {
     color:rgba(255,255,255,1);
     margin 0 auto;
     text-align center;
+    img
+      width 100px;
   .bg-1
     width 100%;
     height 0.7rem;
@@ -282,7 +296,8 @@ export default {
         margin 0.1rem 0.05rem 0;
         float left;
         background white;
-        border-radius 20px;
+        border-radius 23px;
+        overflow hidden;
         img
           width 100%;
 </style>

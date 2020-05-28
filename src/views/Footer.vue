@@ -47,7 +47,7 @@ export default {
             conutry:'联系我们',
             list:[
               '地址：杭州市江干区UDC时代大厦A座28楼',
-              '电话：88888888'
+              '电话：0571-82572150'
             ]
           }
         ],
@@ -74,7 +74,7 @@ export default {
             conutry:'Contanct Us',
             list:[
               'Address:UDC towers, 28 F, Jianggan, Hangzhou',
-              'Tel:88888888'
+              'Tel:0571-82572150'
             ]
           }
         ],
@@ -101,7 +101,7 @@ export default {
             conutry:'お問い合わせ',
             list:[
               '住所:杭州市江干区UDC時代大厦Aビル2803',
-              '電話番号:88888888'
+              '電話番号:0571-82572150'
             ]
           }
         ]
@@ -113,7 +113,15 @@ export default {
   },
   methods:{
     gotoindex(){
-      this.$router.push('/home')
+      if(this.$route.name == 'Home'){
+        window.scrollTo({ 
+            top: 0, 
+            behavior: "smooth" 
+        })    
+      }else{
+        this.$router.push('/home')
+      }
+      //this.$router.push('/home')
     }
   }
 
@@ -133,9 +141,10 @@ export default {
   animation opcity2 1s;
   .backhome
     text-align center;
-    margin 0.2rem auto;
+    margin 0.2rem auto 0.5rem;
     font-size 0.05rem;
     img
+      width 0.15rem;
       cursor pointer;
   .list
     width 33.33333%;
@@ -146,12 +155,11 @@ export default {
       text-align center;
       margin-bottom 0.06rem;
       img
-        width 0.3rem;
-        height 0.3rem;
+        width 0.15rem;
     .country
       margin-bottom 0.07rem;
       font-family:Source Han Sans SC;
     .list_con
-      font-size:0.05rem;
+      font-size:0.04rem;
       line-height 0.07rem;
 </style>

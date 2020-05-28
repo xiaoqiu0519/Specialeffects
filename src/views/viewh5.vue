@@ -56,11 +56,15 @@
             <Swiper class="swiperdiv" :options="swiperOption">
                 <swiper-slide v-for="(item,index) in swiperlist[languagetype]" :key="index">
                     <div class="swiperimg">
-                        <img @click="gotodetail(index+1)" :src="item.img" alt="" srcset="">
+                        <img @click="gotodetail(index)" :src="item.img" alt="" srcset="">
                     </div>
                 </swiper-slide>
                 <div class="swiper-pagination" slot="pagination"></div>
             </Swiper>
+        </div>
+        <div class="xlala">
+            <img src="../assets/xiala.png" alt="" srcset="">
+            <p class="lineslide"></p>
         </div>
         <footerh5></footerh5>
         <navigationh5 v-show="showflag"></navigationh5>
@@ -170,8 +174,38 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+@keyframes slideheight {
+    0% {
+        top 0;    
+    }
+    100% {
+        top 0.3rem;
+    };
+    
+}
 .index
     width 100%;
+    .xlala
+        width 0.3rem;
+        height 0.7rem;
+        overflow hidden;
+        margin-top -0.6rem;
+        position fixed;
+        top 50%;
+        left 0rem;
+        text-align center;
+        z-index 999;
+        img
+            width 0.3rem;
+        .lineslide
+            margin 0 auto;
+            width 2px;
+            margin-top 0.1rem;
+            height 0.6rem;    
+            background white;
+            animation slideheight 1s infinite ease;
+            position relative;
+            top 0;
     .menu
         position fixed;
         width 0.3rem; 

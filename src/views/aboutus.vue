@@ -17,6 +17,11 @@ export default {
     },
     computed:{
         ...mapGetters(['languagetype'])
+    },
+    mounted(){
+        //if(document.getElementsByTagName('canvas')){
+            document.getElementsByTagName('canvas')[0].height = document.body.offsetHeight 
+        //}
     }
 }
 </script>

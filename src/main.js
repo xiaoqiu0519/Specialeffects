@@ -6,6 +6,7 @@ import 'swiper/css/swiper.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import router from './router'
 import store from './store'
+//import $ from 'jquery'
 import {get, post } from './commom/config';
 import { ChangeResize } from './commom/commom';
 ChangeResize(window, document)
@@ -16,6 +17,8 @@ Vue.config.productionTip = false
 Vue.prototype.$get = get;
 Vue.prototype.$post = post;
 Vue.use(VueAwesomeSwiper)
+    //Vue.use($)
+    //console.log($)
 
 new Vue({
     router,

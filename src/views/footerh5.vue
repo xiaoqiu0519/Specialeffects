@@ -47,7 +47,7 @@ export default {
                     conutry:'联系我们',
                     list:[
                     '地址：杭州市江干区UDC时代大厦A座28楼',
-                    '电话：88888888'
+                    '电话：0571-82572150'
                     ]
                 }
                 ],
@@ -74,7 +74,7 @@ export default {
                     conutry:'Contanct Us',
                     list:[
                     'Address:UDC towers, 28 F, Jianggan, Hangzhou',
-                    'Tel:88888888'
+                    'Tel:0571-82572150'
                     ]
                 }
                 ],
@@ -101,7 +101,7 @@ export default {
                     conutry:'お問い合わせ',
                     list:[
                     '住所:杭州市江干区UDC時代大厦Aビル2803',
-                    '電話番号:88888888'
+                    '電話番号:0571-82572150'
                     ]
                 }
                 ]
@@ -113,7 +113,14 @@ export default {
     },
     methods:{
         goindex(){
-            this.$router.push('/home')
+            if(this.$route.name == 'Home'){
+                window.scrollTo({ 
+                    top: 0, 
+                    behavior: "smooth" 
+                })    
+            }else{
+                this.$router.push('/home')
+            }
         }
     }
 }

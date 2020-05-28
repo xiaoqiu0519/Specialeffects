@@ -8,13 +8,13 @@
         <img v-else-if="languagetype == 3" src="../assets/questent_de_jp_1.png" alt="" srcset="">
       </div>
       <div class="list list2">
-        <div class="title" style="top:0.3rem" v-html="listobj.list2[languagetype]"></div>
+        <div class="title" style="top:0.32rem" v-html="listobj.list2[languagetype]"></div>
         <img v-if="languagetype == 1" src="../assets/questent_de_ch_2.png" alt="" srcset="">
         <img v-else-if="languagetype == 2" src="../assets/questent_de_en_2.png" alt="" srcset="">
         <img v-else-if="languagetype == 3" src="../assets/questent_de_jp_2.png" alt="" srcset="">
       </div>
       <div class="list list3">
-        <div class="title" style="top:0.4rem" v-html="listobj.list3[languagetype]"></div>
+        <div class="title" style="top:0.43rem" v-html="listobj.list3[languagetype]"></div>
         <img v-if="languagetype == 1" src="../assets/questent_de_ch_3.png" alt="" srcset="">
         <img v-else-if="languagetype == 2" src="../assets/questent_de_en_3.png" alt="" srcset="">
         <img v-else-if="languagetype == 3" src="../assets/questent_de_jp_3.png" alt="" srcset="">
@@ -26,9 +26,9 @@
         <img v-else-if="languagetype == 3" src="../assets/questent_de_jp_4.png" alt="" srcset="">
       </div>
       <div class="list list5" style="text-align:left">
-        <div class="title" v-html="listobj.list5[languagetype]"  style="top:80px"></div>
+        <div class="title" v-html="listobj.list5[languagetype]"  style="top:0.17rem"></div>
         <div class="serverlist">
-          <div v-for="(item,index) in serverlist[languagetype]" :key="index">
+          <div :class="{china:languagetype == 1,english:languagetype == 2,japan:languagetype == 3}" v-for="(item,index) in serverlist[languagetype]" :key="index">
             <img :src="item.img" alt="" srcset="">
             <span>{{item.title}}</span>
           </div>
@@ -115,7 +115,9 @@ export default {
     ...mapGetters(['languagetype'])
   },
   mounted(){
-     //document.getElementsByTagName('canvas')[0].setAttribute('height','1350')
+    //if(document.getElementsByTagName('canvas')){
+      document.getElementsByTagName('canvas')[0].height = document.body.offsetHeight 
+    //}
   }
 }
 </script>
@@ -137,7 +139,7 @@ export default {
       .title
         position absolute;
         color white;
-        font-size 0.1rem;
+        font-size 0.08rem;
         text-align center;
         left 50px;
         top 0.42rem;
@@ -150,14 +152,14 @@ export default {
       height 1rem;   
       margin-top 0.4rem; 
     .list3
-      height 0.8rem;   
-      margin-top 0.36rem;   
+      height 1.1rem;   
+      margin-top 0.35rem;   
     .list4
       height 0.85rem;   
-      margin-top 0.5rem;     
+      margin-top 0.2rem;     
     .list5
       height 0.8rem;
-      margin-top 0.36rem;     
+      margin-top 0.34rem;     
       .serverlist
         float right;
         width 2rem;
@@ -166,10 +168,11 @@ export default {
         align-items center;
         flex-wrap wrap;
         justify-content space-between;
-        font-size 0.02rem;
+        font-size 0.04rem; 
         margin-top -0.17rem;
         &>div
-          width 30%; 
+          width 26%;
+          padding 0 2%; 
           height 0.1rem;
           font-size 0.04rem;
           border-radius 0.05rem;
@@ -180,8 +183,12 @@ export default {
           align-items center;
           align-content center;
           img
-            width 0.05rem;
-            height auto;
+            height 0.05rem;
+            margin-right 5px;
+        .china
+          font-size 0.04rem;   
+          img
+            margin-left 20px;
             margin-right 10px;
-            margin-left 10px;
+              
 </style>

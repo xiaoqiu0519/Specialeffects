@@ -38,39 +38,15 @@ const routes = [{
 }, ]
 
 const router = new VueRouter({
-        mode: 'hash',
-        base: process.env.BASE_URL,
-        routes,
-    })
-    // router.afterEach((to) => {
-    //     let { name } = to;
-    //     console.log(to.name)
-    //     switch (name) {
-    //         case 'Home':
-    //             setTimeout(() => {
-    //                 document.body.style.height = '3750px';
-    //             }, 100)
-    //             break;
-    //         case 'Product':
-    //             setTimeout(() => {
-    //                 document.body.style.height = '1350px';
-    //             }, 100)
-    //             break;
-    //         case 'AboutUs':
-    //             setTimeout(() => {
-    //                 document.body.style.height = '1000px';
-    //             }, 100)
+    mode: 'hash',
+    base: process.env.BASE_URL,
+    routes,
+})
+router.afterEach(() => {
 
-//             break;
-//     }
-// })
-// router.afterEach(route => {
-//     console.log(route)
-//         //document.getElementsByTagName('canvas')[0].setAttribute('height') = '1350px'
-//         //console.log(document.getElementsByTagName('canvas').getAttribute)
+    window.scrollTo(0, 0);
 
-
-// })
+});
 
 
 export default router

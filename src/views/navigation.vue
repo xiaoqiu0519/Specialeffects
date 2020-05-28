@@ -51,6 +51,9 @@ export default {
     components:{
        
     },
+    mounted(){
+       // window.addEventListener('scroll', this.menu)
+    },
     methods:{
         ...mapActions(['setnavflagAsy']),
         closenav(){
@@ -65,11 +68,34 @@ export default {
             return obj;
         },
         dddd(index){
+            let m = 0;
+            switch(index){
+                case 0:
+                    m=500;
+                break;
+                case 1:
+                    m=900
+                break;
+                case 2:
+                    m=1400
+                break;
+                case 3:
+                    m=2100
+                break;
+                case 4:
+                    m=3000
+                break;
+            }
             window.scrollTo({ 
-                top: 500 * (index+1), 
+                top: m, 
                 behavior: "smooth" 
             })    
-        }
+            this.closenav()
+        },
+        menu() {
+            // this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
+            // console.log(this.scroll)
+        },
     }
 }
 </script>
@@ -116,8 +142,8 @@ export default {
         position relative;
         background white;
         .closeimg
-            width 100px;
-            height 100px;
+            width 0.3rem;
+            height 0.3rem;
             position absolute;
             top 0;
             right 0;
@@ -125,8 +151,8 @@ export default {
             text-align center;
             cursor pointer;
             img
-                width 32px;
-                margin-top 34px;
+                width 0.15rem;
+                margin-top 0.075rem;
                 transition: all 0.6s; 
                 &:hover
                     transform: scale(1.6);   
@@ -136,10 +162,9 @@ export default {
             display flex;
             align-items center;
             .conta
-                height 205px;
                 div
                     width 100%;
-                    text-indent 35px;
+                    text-indent 0.12rem;
                     flex-wrap wrap;
             .animateleft0
                 animation animateleft 1s ease;
@@ -165,16 +190,16 @@ export default {
                 margin-left 0;
                 opacity 1;
                 color #1E1E1E;
-                margin-bottom 16px;
+                margin-bottom 0.05rem;
                 cursor pointer;
                 line-height 1;
-                font-size:16px;
+                font-size:0.05rem;
                 font-family:Source Han Sans SC;
                 &:hover
                     opacity 0.5;
             .slogan
-                margin-bottom 47px;
+                margin-bottom 0.15rem;
                 img 
-                    width 120px; 
+                    width 0.4rem; 
                        
 </style>

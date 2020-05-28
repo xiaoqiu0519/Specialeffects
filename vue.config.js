@@ -1,6 +1,7 @@
 const path = require("path");
-
+const webpack = require('webpack')
 module.exports = {
+    productionSourceMap: process.env.NODE_ENV === 'production' ? false : true,
     // webpack配置 - 简单配置方式
     configureWebpack: {
         resolve: {
@@ -28,7 +29,14 @@ module.exports = {
                     }
                 }
             },
-        }
+        },
+        plugins: [
+            new webpack.ProvidePlugin({
+                $: "jquery",
+                jQuery: "jquery",
+                "windows.jQuery": "jquery"
+            })    
+        ]
     },
 
 }
