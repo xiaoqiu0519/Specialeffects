@@ -78,20 +78,20 @@ export default {
             // this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
             // console.log(this.scroll)
         },
-        scrollAnimation(currentY, targetY) {
-            let needScrollTop = targetY - currentY
-            let _currentY = currentY
-            setTimeout(() => {
-                const dist = Math.ceil(needScrollTop / 10)
-                _currentY += dist
-                window.scrollTo(_currentY, currentY)
-                if (needScrollTop > 10 || needScrollTop < -10) {
-                    this.scrollAnimation(_currentY, targetY)
-                } else {
-                    window.scrollTo(_currentY, targetY)
-                }
-            }, 20)
-        },
+        // scrollAnimation(currentY, targetY) {
+        //     let needScrollTop = targetY - currentY
+        //     let _currentY = currentY
+        //     setTimeout(() => {
+        //         const dist = Math.ceil(needScrollTop / 10)
+        //         _currentY += dist
+        //         window.scrollTo(_currentY, currentY)
+        //         if (needScrollTop > 10 || needScrollTop < -10) {
+        //             this.scrollAnimation(_currentY, targetY)
+        //         } else {
+        //             window.scrollTo(_currentY, targetY)
+        //         }
+        //     }, 20)
+        // },
         dddd(index){
             let m = 0;
             switch(index){
@@ -111,9 +111,7 @@ export default {
                     m=3000
                 break;
             }
-            document.getElementsByClassName('aboutus')[0].offsetTop 
-            let scroll = document.documentElement.scrollTop || document.body.scrollTop;
-            this.scrollAnimation(scroll,m)
+            $('#app').animate({scrollTop: m},300);
             this.setshowflagAsy(0)
         }
     }

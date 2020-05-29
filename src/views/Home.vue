@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="contaner home">
     <viewpc v-if="showpc"></viewpc>
     <viewh5 v-if="showh5"></viewh5>
   </div>
@@ -49,4 +49,6 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+  .contaner
+    position relative;
 </style>

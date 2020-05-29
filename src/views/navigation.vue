@@ -53,7 +53,7 @@ export default {
        
     },
     mounted(){
-       // window.addEventListener('scroll', this.menu)
+      
     },
     methods:{
         ...mapActions(['setnavflagAsy']),
@@ -84,18 +84,14 @@ export default {
                     m=2100
                 break;
                 case 4:
-                    m=3000
+                    m=4000
                 break;
             }
-            window.scrollTo({ 
-                top: m, 
-                behavior: "smooth" 
-            })    
+            $('#app').animate({scrollTop: m},300);
             this.closenav()
         },
         menu() {
-            // this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
-            // console.log(this.scroll)
+            
         },
     }
 }

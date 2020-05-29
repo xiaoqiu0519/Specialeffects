@@ -114,10 +114,7 @@ export default {
     methods:{
         goindex(){
             if(this.$route.name == 'Home'){
-                window.scrollTo({ 
-                    top: 0, 
-                    behavior: "smooth" 
-                })    
+                $('#app').animate({scrollTop: 0},300);
             }else{
                 this.$router.push('/home')
             }

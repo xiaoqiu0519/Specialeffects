@@ -26,6 +26,10 @@ export default {
 <style lang="stylus">
 
 #app
+  width 100%;
+  height 100%;
+  overflow auto;
+  -webkit-overflow-scrolling : touch;
   margin 0 auto;
   font-family Avenir, Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
