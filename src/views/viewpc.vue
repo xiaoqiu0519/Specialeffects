@@ -364,7 +364,7 @@ export default {
     width: 100%;
     margin-top: 0.5rem;
     clear: both;
-    overflow: hidden;
+    //overflow: hidden;
     background: url('../assets/zhanshi.png') no-repeat;
     background-size: 100% auto;
 
@@ -385,6 +385,7 @@ export default {
       overflow: hidden;
       margin: 0 auto;
       text-align: center;
+      padding-bottom 15px;
 
       .list {
         width: 0.8rem;
