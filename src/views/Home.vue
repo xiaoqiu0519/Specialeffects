@@ -1,7 +1,7 @@
 <template>
   <div class="contaner home">
-    <viewpc v-if="showpc"></viewpc>
-    <viewh5 v-if="showh5"></viewh5>
+    <viewpc v-if="showpc" :imgdata='imgdata'></viewpc>
+    <viewh5 v-if="showh5" :imgdata='imgdata'></viewh5>
   </div>
 </template>
 
@@ -15,12 +15,14 @@ export default {
   data(){
     return{
       showpc:false,
-      showh5:false
+      showh5:false,
+      imgdata:[]
     }
   },
   mounted(){
     var vm = this;
     this.loadpage()
+    this.getproductlist();
     window.addEventListener('resize', function() {
       vm.loadpage()
     })
@@ -43,6 +45,15 @@ export default {
         this.showpc = true
         this.showh5 = false
       }
+    },
+    getproductlist(){
+      this.$get('/product/getlist').then((res) => {
+          if (res.error == '0000') {
+              this.imgdata = res.data
+          } else {
+              console.log(0)
+          }
+      })
     }
   },
  

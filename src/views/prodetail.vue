@@ -3,7 +3,9 @@
         <Swiper class="swiperdiv" :options="swiperOption">
             <swiper-slide v-for="(item,index) in swiperlist[languagetype]" :key="index">
                 <div class="swiperimg">
-                    <img @click="gotodetail(index+1)" :src="item.img" alt="" srcset="">
+                    <img v-if="languagetype == 1" :src="item.detail_h5_ch" alt="" srcset="">
+                    <img v-else-if="languagetype == 2" :src="item.detail_h5_ch" alt="" srcset="">
+                    <img v-else-if="languagetype == 3" :src="item.detail_h5_ch" alt="" srcset="">
                 </div>
             </swiper-slide>
         </Swiper>
@@ -30,32 +32,7 @@ export default {
                 2:'Back',
                 3:'帰る'
             },
-            swiperlist:{
-                1:[
-                    {img:require('../assets/pro_detail_ch_1.png')},
-                    {img:require('../assets/pro_detail_ch_2.png')},
-                    {img:require('../assets/pro_detail_ch_3.png')},
-                    {img:require('../assets/pro_detail_ch_4.png')},
-                    {img:require('../assets/pro_detail_ch_5.png')},
-                    {img:require('../assets/pro_detail_ch_6.png')}
-                ],
-                2:[
-                    {img:require('../assets/pro_detail_en_1.png')},
-                    {img:require('../assets/pro_detail_en_2.png')},
-                    {img:require('../assets/pro_detail_en_3.png')},
-                    {img:require('../assets/pro_detail_en_4.png')},
-                    {img:require('../assets/pro_detail_en_5.png')},
-                    {img:require('../assets/pro_detail_en_6.png')}
-                ],
-                3:[
-                    {img:require('../assets/pro_detail_jp_1.png')},
-                    {img:require('../assets/pro_detail_jp_2.png')},
-                    {img:require('../assets/pro_detail_jp_3.png')},
-                    {img:require('../assets/pro_detail_jp_4.png')},
-                    {img:require('../assets/pro_detail_jp_5.png')},
-                    {img:require('../assets/pro_detail_jp_6.png')}
-                ]
-            },
+            swiperlist:{ },
         }
     },
     created(){
@@ -63,16 +40,7 @@ export default {
         this.swiperOption.initialSlide = this.id
     },
     mounted(){
-        
-        // var str = '_ch_';
-        // if(this.languagetype == 1){
-        //     str = '_ch_'
-        // }else if(this.languagetype == 2){
-        //     str = '_en_'
-        // }else if(this.languagetype == 3){
-        //     str = '_jp_'
-        // }
-        // this.imgurl = require('../assets/pro_detail'+ str + this.id +'.png')
+        this.getproductlist(); 
     },
     computed:{
         ...mapGetters(['languagetype'])
@@ -80,6 +48,15 @@ export default {
     methods:{
         goindex(){
             this.$router.push('/home')
+        },
+        getproductlist(){
+            this.$get('/product/getlist').then((res) => {
+                if (res.error == '0000') {
+                    this.swiperlist = res.data
+                } else {
+                    console.log(0)
+                }
+            })
         }
     }
 }

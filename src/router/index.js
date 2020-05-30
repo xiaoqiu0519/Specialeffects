@@ -43,9 +43,7 @@ const router = new VueRouter({
     routes,
 })
 router.afterEach(() => {
-
-    window.scrollTo(0, 0);
-
+    $('#app').animate({ scrollTop: 0 }, 300);
 });
 
 

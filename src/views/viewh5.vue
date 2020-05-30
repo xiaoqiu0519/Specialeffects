@@ -54,9 +54,11 @@
         <div class="product">
             <div class="title">{{producttitle[languagetype]}}</div>
             <Swiper class="swiperdiv" :options="swiperOption">
-                <swiper-slide v-for="(item,index) in swiperlist[languagetype]" :key="index">
+                <swiper-slide v-for="(item,index) in imgdata[languagetype]" :key="index">
                     <div class="swiperimg">
-                        <img @click="gotodetail(index)" :src="item.img" alt="" srcset="">
+                        <img @click="gotodetail(index)" v-if="languagetype == 1" :src="item.small_ch" alt="" srcset="">
+                        <img @click="gotodetail(index)" v-else-if="languagetype == 2" :src="item.small_ch" alt="" srcset="">
+                        <img @click="gotodetail(index)" v-else-if="languagetype == 3" :src="item.small_ch" alt="" srcset="">
                     </div>
                 </swiper-slide>
                 <div class="swiper-pagination" slot="pagination"></div>
@@ -114,32 +116,7 @@ export default {
                 2:'Case Study',
                 3:'コンサルティング事例'
             },
-            swiperlist:{
-                1:[
-                    {img:require('../assets/pro_ch_1.png')},
-                    {img:require('../assets/pro_ch_2.png')},
-                    {img:require('../assets/pro_ch_3.png')},
-                    {img:require('../assets/pro_ch_4.png')},
-                    {img:require('../assets/pro_ch_5.png')},
-                    {img:require('../assets/pro_ch_6.png')}
-                ],
-                2:[
-                    {img:require('../assets/pro_en_1.png')},
-                    {img:require('../assets/pro_en_2.png')},
-                    {img:require('../assets/pro_en_3.png')},
-                    {img:require('../assets/pro_en_4.png')},
-                    {img:require('../assets/pro_en_5.png')},
-                    {img:require('../assets/pro_en_6.png')}
-                ],
-                3:[
-                    {img:require('../assets/pro_jp_1.png')},
-                    {img:require('../assets/pro_jp_2.png')},
-                    {img:require('../assets/pro_jp_3.png')},
-                    {img:require('../assets/pro_jp_4.png')},
-                    {img:require('../assets/pro_jp_5.png')},
-                    {img:require('../assets/pro_jp_6.png')}
-                ]
-            },
+            swiperlist:{},
             swiperOption: {
                 pagination: {
                 el: '.swiper-pagination'
@@ -149,6 +126,7 @@ export default {
             }
         }
     },
+    props:['imgdata'],
     computed:{
         ...mapGetters(['languagetype','showflag'])
     },

@@ -23,19 +23,26 @@ export default {
     ...mapGetters(['languagetype'])
   },
   mounted(){
-    //if(document.getElementsByTagName('canvas')){
-      //document.getElementsByTagName('canvas')[0].height = document.body.offsetHeight 
-    //}
     this.id = this.$route.params.id
-    var str = '_ch_';
-    if(this.languagetype == 1){
-        str = '_ch_'
-    }else if(this.languagetype == 2){
-        str = '_en_'
-    }else if(this.languagetype == 3){
-        str = '_jp_'
+    this.getproductlist(this.id); 
+  },
+  methods:{
+    getproductlist(index){
+      this.$get('/product/getlist').then((res) => {
+          if (res.error == '0000') {
+              this.imgdata = res.data
+              if(this.languagetype == 1){
+                  this.imgurl = res.data[this.languagetype][index].detail_pc_ch
+              }else if(this.languagetype == 2){
+                  this.imgurl = res.data[this.languagetype][index].detail_pc_en
+              }else if(this.languagetype == 3){
+                  this.imgurl = res.data[this.languagetype][index].detail_pc_jp
+              }
+          } else {
+              console.log(0)
+          }
+      })
     }
-    this.imgurl = require('../assets/pro_detail_h5'+ str + this.id +'.png')
   }
 }
 </script>

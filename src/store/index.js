@@ -9,6 +9,7 @@ export default new Vuex.Store({
         navflag: false,
         showflag: false,
         languagetype: 1,
+        imgdata: ''
     },
     getters: {
         getloading(state) {
@@ -22,6 +23,9 @@ export default new Vuex.Store({
         },
         languagetype(state) {
             return state.languagetype
+        },
+        imgdata(state) {
+            return state.imgdata
         }
 
     },
@@ -37,6 +41,9 @@ export default new Vuex.Store({
         },
         setlanguagetype(state, str) {
             return state.languagetype = str
+        },
+        setimgdata(state, obj) {
+            return state.imgdata = obj
         }
 
     },
@@ -53,6 +60,9 @@ export default new Vuex.Store({
         setlanguagetypeAsy(context, str) {
             context.commit('setlanguagetype', str)
             sessionStorage.setItem('languagetype', str)
+        },
+        setimgdata(context, obj) {
+            context.commit('setimgdata', obj)
         }
     },
     modules: {}

@@ -89,8 +89,10 @@
     <div class="product">
       <div class="title">{{producttitle[languagetype]}}</div>
       <div class="content">
-        <div class="list" v-for="(list,index) in prolist[languagetype]" :key="index">
-          <img @click="gotoproduct(index)" :src="list.img" alt srcset />
+        <div class="list" v-for="(list,index) in imgdata[languagetype]" :key="index">
+          <img @click="gotoproduct(index)" v-if="languagetype == 1" :src="list.small_ch" alt srcset />
+          <img @click="gotoproduct(index)" v-else-if="languagetype == 2" :src="list.small_ch" alt srcset />
+          <img @click="gotoproduct(index)" v-else-if="languagetype == 3" :src="list.small_ch" alt srcset />
         </div>
       </div>
     </div>
@@ -106,8 +108,6 @@
 import { mapActions, mapGetters } from "vuex";
 import navigation from "./navigation";
 import Footer from "../views/Footer";
-//import $ from "jquery";
-
 export default {
   name: "Home",
   data() {
@@ -141,37 +141,12 @@ export default {
         2: "Case Study",
         3: "コンサルティング事例"
       },
-      prolist: {
-        1: [
-          { img: require("../assets/pro_ch_1.png") },
-          { img: require("../assets/pro_ch_2.png") },
-          { img: require("../assets/pro_ch_3.png") },
-          { img: require("../assets/pro_ch_4.png") },
-          { img: require("../assets/pro_ch_5.png") },
-          { img: require("../assets/pro_ch_6.png") }
-        ],
-        2: [
-          { img: require("../assets/pro_en_1.png") },
-          { img: require("../assets/pro_en_2.png") },
-          { img: require("../assets/pro_en_3.png") },
-          { img: require("../assets/pro_en_4.png") },
-          { img: require("../assets/pro_en_5.png") },
-          { img: require("../assets/pro_en_6.png") }
-        ],
-        3: [
-          { img: require("../assets/pro_jp_1.png") },
-          { img: require("../assets/pro_jp_2.png") },
-          { img: require("../assets/pro_jp_3.png") },
-          { img: require("../assets/pro_jp_4.png") },
-          { img: require("../assets/pro_jp_5.png") },
-          { img: require("../assets/pro_jp_6.png") }
-        ]
-      }
     };
   },
   mounted() {
-  
+    
   },
+  props:['imgdata'],
   components: {
     navigation,
     Footer
@@ -188,7 +163,7 @@ export default {
       this.$router.push("/questent");
     },
     gotoproduct(index) {
-      this.$router.push("/product/id/" + (index + 1));
+      this.$router.push("/product/id/" + index);
     }
   }
 };
