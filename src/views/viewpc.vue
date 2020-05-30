@@ -394,11 +394,13 @@ export default {
         background: white;
         border-radius: 23px;
         overflow: hidden;
+        transition: transform .3s ease-in-out
         &:hover{
           box-shadow:15px 0 15px -15px #000,
-                    -15px 0 15px -15px #000,
-                    0px 15px 15px -15px #000
-        }
+                     -15px 0 15px -15px #000,
+                     0px 15px 15px -15px #000;
+            transform: translateY(-2.5px);
+        }    
         
         img {
           width: 100%;
