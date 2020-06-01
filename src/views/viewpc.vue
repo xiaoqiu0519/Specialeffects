@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <img class="lecrae_logo" src="../assets/h5_logo.png" alt srcset />
     <div class="lau">
       <span :class="{activeclass:languagetype == 1}" @click="setlanguagetypeAsy(1)">中</span>|
       <span :class="{activeclass:languagetype == 2}" @click="setlanguagetypeAsy(2)">En</span>|
@@ -10,8 +11,6 @@
       <p>menu</p>
     </div>
     <div class="slogan">
-      <img src="../assets/h5_logo.png" alt srcset />
-      <br />
       {{slogan[languagetype]}}
     </div>
     <div class="bg-1">
@@ -194,14 +193,19 @@ export default {
   .opacityanimate-enter-active, .opacityanimate-leave-active {
     transition: all 1.5s;
   }
-
+.lecrae_logo{
+  width:0.3rem;
+  position:absolute;
+  left:0.1rem;
+  top:0.1rem
+}
   .menu {
     width: 0.2rem;
     height: 0.2rem;
     position: fixed;
     top: 50%;
     margin-top: -0.1rem;
-    right: 0.33rem;
+    right: 0rem;
     z-index: 10;
     text-align: center;
     font-size: 0.05rem;
