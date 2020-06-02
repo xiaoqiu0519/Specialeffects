@@ -57,8 +57,8 @@
                 <swiper-slide v-for="(item,index) in imgdata[languagetype]" :key="index">
                     <div class="swiperimg">
                         <img @click="gotodetail(index)" v-if="languagetype == 1" :src="item.small_ch" alt="" srcset="">
-                        <img @click="gotodetail(index)" v-else-if="languagetype == 2" :src="item.small_ch" alt="" srcset="">
-                        <img @click="gotodetail(index)" v-else-if="languagetype == 3" :src="item.small_ch" alt="" srcset="">
+                        <img @click="gotodetail(index)" v-else-if="languagetype == 2" :src="item.small_en" alt="" srcset="">
+                        <img @click="gotodetail(index)" v-else-if="languagetype == 3" :src="item.small_jp" alt="" srcset="">
                     </div>
                 </swiper-slide>
                 <div class="swiper-pagination" slot="pagination"></div>

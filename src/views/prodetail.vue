@@ -2,10 +2,12 @@
     <div class="prodetail">
         <Swiper class="swiperdiv" :options="swiperOption">
             <swiper-slide v-for="(item,index) in swiperlist[languagetype]" :key="index">
+                
                 <div class="swiperimg">
+                    {{item}}
                     <img v-if="languagetype == 1" :src="item.detail_h5_ch" alt="" srcset="">
-                    <img v-else-if="languagetype == 2" :src="item.detail_h5_ch" alt="" srcset="">
-                    <img v-else-if="languagetype == 3" :src="item.detail_h5_ch" alt="" srcset="">
+                    <img v-else-if="languagetype == 2" :src="item.detail_h5_en" alt="" srcset="">
+                    <img v-else-if="languagetype == 3" :src="item.detail_h5_jp" alt="" srcset="">
                 </div>
             </swiper-slide>
         </Swiper>

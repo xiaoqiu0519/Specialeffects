@@ -90,8 +90,8 @@
       <div class="content">
         <div class="list" v-for="(list,index) in imgdata[languagetype]" :key="index">
           <img @click="gotoproduct(index)" v-if="languagetype == 1" :src="list.small_ch" alt srcset />
-          <img @click="gotoproduct(index)" v-else-if="languagetype == 2" :src="list.small_ch" alt srcset />
-          <img @click="gotoproduct(index)" v-else-if="languagetype == 3" :src="list.small_ch" alt srcset />
+          <img @click="gotoproduct(index)" v-else-if="languagetype == 2" :src="list.small_en" alt srcset />
+          <img @click="gotoproduct(index)" v-else-if="languagetype == 3" :src="list.small_jp" alt srcset />
         </div>
       </div>
     </div>
