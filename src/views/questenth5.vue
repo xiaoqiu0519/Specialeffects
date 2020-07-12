@@ -1,6 +1,10 @@
 <template>
     <div class="questenth5">
-        <div class="top" @click="goindex()"><img src="../assets/fanhui.png" alt="" srcset="">{{back[languagetype]}}</div>
+        <div class="header-top" @click="goindex()">
+            <img src="../assets/fanhui1.png" alt="" srcset="">
+            {{back[languagetype]}}
+            <span class="LACRAE">LACRAE</span>
+        </div>
         <div class="list list1">
             <div class="title" v-html="listobj.list1[languagetype]"></div>
             <img v-if="languagetype == 1"  class="listimg" src="../assets/qwes_h5_cn_1.png" alt="">
@@ -51,27 +55,27 @@ export default {
             listobj:{
                 list1:{
                 1:'品牌战略的策划制定和管理',
-                2:'Brand stategy planning management',
+                2:'Brand Stategy Planning Management',
                 3:'ブランド戦略'
                 },
                 list2:{
                 1:'一站式服务定制营销解决方案',
-                2:'Turnkey, Bespoke marketing solutuions',
+                2:'Turnkey, Bespoke Marketing Solutuions',
                 3:'ワンストップサービス'
                 },
                 list3:{
                 1:'海外品牌引进',
-                2:'Chinese market entry advisory',
+                2:'Chinese Market Entry Advisory',
                 3:'国外ブランド紹介'
                 },
                 list4:{
                 1:'销售和营销支持',
-                2:'Sales and <br> Marketing support',
+                2:'Sales And <br> Marketing Support',
                 3:'マーケティングサポート'
                 },
                 list5:{
                 1:'我们的服务包括',
-                2:'Our service includes',
+                2:'Our Service Includes',
                 3:'我々のサービス'
                 },
             },
@@ -88,15 +92,15 @@ export default {
                 {img:require('../assets/ques_9.png'),title:'数据分析'},
                 ],
                 2:[
-                {img:require('../assets/ques_1.png'),title:'Creative strategies creation'},
-                {img:require('../assets/ques_2.png'),title:'Social Media operations'},
-                {img:require('../assets/ques_3.png'),title:'Content generations'},
-                {img:require('../assets/ques_4.png'),title:'Digital fanbase marketing'},
+                {img:require('../assets/ques_1.png'),title:'Creative Strategies Creation'},
+                {img:require('../assets/ques_2.png'),title:'Social Media Operations'},
+                {img:require('../assets/ques_3.png'),title:'Content Generations'},
+                {img:require('../assets/ques_4.png'),title:'Digital Fanbase Marketing'},
                 {img:require('../assets/ques_5.png'),title:'Marketing & Communication'},
-                {img:require('../assets/ques_6.png'),title:'Creative & Visual design'},
-                {img:require('../assets/ques_7.png'),title:'Short Video production'},
-                {img:require('../assets/ques_8.png'),title:'Sale channel management'},
-                {img:require('../assets/ques_9.png'),title:'Date analysis'},
+                {img:require('../assets/ques_6.png'),title:'Creative & Visual Design'},
+                {img:require('../assets/ques_7.png'),title:'Short Video Production'},
+                {img:require('../assets/ques_8.png'),title:'Sale channel Management'},
+                {img:require('../assets/ques_9.png'),title:'Date Analysis'},
                 ],
                 3:[
                 {img:require('../assets/ques_1.png'),title:'ブランドのイノベーション戦略'},
@@ -133,18 +137,8 @@ export default {
     background-position 0.1rem 0.6rem;
     clear both;
     overflow hidden;
-    .top
-        width 1rem;
-        height 0.4rem;
-        line-height 0.4rem;
-        img
-            width 0.1rem;
-            position relative;
-            top 0.05rem;
-            margin-left 0.1rem;
-            margin-right 0.05rem;
     .list1
-        margin-top 0.35rem;
+        margin-top 0.8rem;
     .list2  
         margin-top 0.3rem;   
     .list3 

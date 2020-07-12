@@ -59,7 +59,7 @@ export default {
        
     },
     mounted(){
-        //window.addEventListener('scroll', this.menu)
+        
     },
     methods:{
         ...mapActions(['setshowflagAsy','setlanguagetypeAsy']),
@@ -74,25 +74,17 @@ export default {
             obj['animateleft'+value] = true;
             return obj;
         },
-        menu() {
-            // this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
-            // console.log(this.scroll)
-        },
-        // scrollAnimation(currentY, targetY) {
-        //     let needScrollTop = targetY - currentY
-        //     let _currentY = currentY
-        //     setTimeout(() => {
-        //         const dist = Math.ceil(needScrollTop / 10)
-        //         _currentY += dist
-        //         window.scrollTo(_currentY, currentY)
-        //         if (needScrollTop > 10 || needScrollTop < -10) {
-        //             this.scrollAnimation(_currentY, targetY)
-        //         } else {
-        //             window.scrollTo(_currentY, targetY)
-        //         }
-        //     }, 20)
-        // },
         dddd(index){
+            if(location.hash !== '#/home'){
+                this.$router.push('/home')
+                setTimeout(()=>{
+                    this.animatefun(index)
+                },100)
+            }else{
+                this.animatefun(index)
+            }
+        },
+        animatefun(index){
             let m = 0;
             switch(index){
                 case 0:
@@ -146,7 +138,7 @@ export default {
     height 100%;
     left 0;
     top 0;
-    z-index 100;
+    z-index 10000000000;
     background rgba(0,0,0,0.5);
     .enter
         animation enter 0.4s ease-in-out;

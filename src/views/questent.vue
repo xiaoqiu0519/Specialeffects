@@ -1,5 +1,6 @@
 <template>
   <div class="questent">
+    <div class="top_title"><img class="lecrae_logo" src="../assets/h5_logo.png" alt srcset /></div>
     <div class="con">
       <div class="list list1">
         <div class="title" v-html="listobj.list1[languagetype]"></div>
@@ -47,27 +48,27 @@ export default {
       listobj:{
         list1:{
           1:'品牌战略的策划<br>制定和管理',
-          2:'Brand stategy planning <br> management',
+          2:'Brand Stategy Planning',
           3:'ブランド戦略'
         },
         list2:{
           1:'一站式服务<br>定制营销解决方案',
-          2:'Turnkey, Bespoke <br> marketing solutuions',
+          2:'Turnkey, Bespoke <br> Marketing Solutuions',
           3:'ワンストップサービス'
         },
         list3:{
           1:'海外品牌引进',
-          2:'Chinese market entry advisory',
+          2:'Chinese Market Entry Advisory',
           3:'国外ブランド紹介'
         },
         list4:{
           1:'销售和营销支持',
-          2:'Sales and <br/> Marketing support',
+          2:'Sales and <br/> Marketing Support',
           3:'マーケティングサポート'
         },
         list5:{
           1:'我们的服务包括',
-          2:'Our service includes',
+          2:'Our Service Includes',
           3:'我々のサービス'
         },
       },
@@ -84,15 +85,15 @@ export default {
           {img:require('../assets/ques_9.png'),title:'数据分析'},
         ],
         2:[
-          {img:require('../assets/ques_1.png'),title:'Creative strategies creation'},
-          {img:require('../assets/ques_2.png'),title:'Social Media operations'},
-          {img:require('../assets/ques_3.png'),title:'Content generations'},
-          {img:require('../assets/ques_4.png'),title:'Digital fanbase marketing'},
-          {img:require('../assets/ques_5.png'),title:'Marketing & Communication stategies'},
-          {img:require('../assets/ques_6.png'),title:'Creative & Visual design'},
-          {img:require('../assets/ques_7.png'),title:'Short Video production'},
-          {img:require('../assets/ques_8.png'),title:'Sale channel management'},
-          {img:require('../assets/ques_9.png'),title:'Date analysis'},
+          {img:require('../assets/ques_1.png'),title:'Creative Strategies Creation'},
+          {img:require('../assets/ques_2.png'),title:'Social Media Operations'},
+          {img:require('../assets/ques_3.png'),title:'Content Generations'},
+          {img:require('../assets/ques_4.png'),title:'Digital Fanbase Marketing'},
+          {img:require('../assets/ques_5.png'),title:'Marketing & Communication Stategies'},
+          {img:require('../assets/ques_6.png'),title:'Creative & Visual Design'},
+          {img:require('../assets/ques_7.png'),title:'Short Video Production'},
+          {img:require('../assets/ques_8.png'),title:'Sale Channel Management'},
+          {img:require('../assets/ques_9.png'),title:'Date Analysis'},
         ],
         3:[
           {img:require('../assets/ques_1.png'),title:'ブランドのイノベーション戦略'},
@@ -123,16 +124,15 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .questent
-  width 3.4rem;
   margin 0 auto;
   .con
     background url('../assets/left_line.png') no-repeat; 
     background-size 0.06rem auto;
     background-position 0 -20px;
-    width 3.4rem;
     clear both;
     overflow hidden;
     padding-bottom 0.1rem;
+    margin-left 0.1rem;
     .list
       position relative;
       text-align right ;
@@ -142,7 +142,7 @@ export default {
         font-size 0.08rem;
         text-align center;
         left 50px;
-        top 0.42rem;
+        top 0.48rem;
       img
         height 100%;
     .list1

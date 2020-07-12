@@ -1,5 +1,6 @@
 <template>
     <div class="aboutus">
+        <div class="top_title"><img class="lecrae_logo" src="../assets/h5_logo.png" alt srcset /></div>
         <div class="content">
             <img v-if="languagetype == 1" src="../assets/about_us_detail_ch.png" alt="" srcset="">
             <img v-else-if="languagetype == 2" src="../assets/about_us_detail_en.png" alt="" srcset="">

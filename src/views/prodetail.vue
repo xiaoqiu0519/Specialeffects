@@ -2,21 +2,18 @@
     <div class="prodetail">
         <Swiper class="swiperdiv" :options="swiperOption">
             <swiper-slide v-for="(item,index) in swiperlist[languagetype]" :key="index">
-                
                 <div class="swiperimg">
-                    {{item}}
                     <img v-if="languagetype == 1" :src="item.detail_h5_ch" alt="" srcset="">
                     <img v-else-if="languagetype == 2" :src="item.detail_h5_en" alt="" srcset="">
                     <img v-else-if="languagetype == 3" :src="item.detail_h5_jp" alt="" srcset="">
                 </div>
             </swiper-slide>
         </Swiper>
-        <div class="top" @click="goindex()"><img src="../assets/fanhui.png" alt="" srcset="">{{back[languagetype]}}</div>
-        <!--
-        <div class="goindex">
-            <img @click="goindex()" src="../assets/home.png" alt="" srcset="">
+        <div class="header-top" @click="goindex()">
+            <img src="../assets/fanhui1.png" alt="" srcset="">
+            {{back[languagetype]}}
+            <span class="LACRAE">LACRAE</span>
         </div>
-        -->
     </div>
 </template>
 <script>
@@ -70,20 +67,6 @@ export default {
     background white;
     overflow hidden;
     position relative;
-    .top
-        width 1rem;
-        height 0.4rem;
-        line-height 0.4rem;
-        position absolute;
-        left 0;
-        z-index 999;
-        top 0;
-        img
-            width 0.1rem;
-            position relative;
-            top 0.05rem;
-            margin-left 0.1rem;
-            margin-right 0.05rem;
     .swiperdiv
         .swiperimg
             width 100%;

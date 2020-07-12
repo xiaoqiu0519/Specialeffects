@@ -69,29 +69,36 @@ export default {
             return obj;
         },
         dddd(index){
+            if(location.hash !== '#/home'){
+                this.$router.push('/home')
+                setTimeout(()=>{
+                    this.animatefun(index)
+                },100)
+            }else{
+                this.animatefun(index)
+            }
+        },
+        animatefun(index) {
             let m = 0;
             switch(index){
                 case 0:
-                    m=500;
+                    m=900;
                 break;
                 case 1:
-                    m=900
-                break;
-                case 2:
                     m=1400
                 break;
+                case 2:
+                    m=1900
+                break;
                 case 3:
-                    m=2100
+                    m=2600
                 break;
                 case 4:
-                    m=4000
+                    m=4200
                 break;
             }
             $('#app').animate({scrollTop: m},300);
             this.closenav()
-        },
-        menu() {
-            
         },
     }
 }

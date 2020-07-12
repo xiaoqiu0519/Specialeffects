@@ -113,15 +113,11 @@ export default {
   },
   methods:{
     gotoindex(){
-      if(this.$route.name == 'Home'){
-        window.scrollTo({ 
-            top: 0, 
-            behavior: "smooth" 
-        })    
+      if(this.$route.name === 'Home'){
+        $('#app').animate({scrollTop: 0},300);    
       }else{
         this.$router.push('/home')
       }
-      //this.$router.push('/home')
     }
   }
 

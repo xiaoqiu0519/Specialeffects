@@ -3,25 +3,20 @@
         <div class="top">
             <img class="logo" src="../assets/h5_logo.png" alt="" srcset="">
         </div>
-        <img class="menu" @click="setshowflagAsy(true)" src="../assets/h5_menu.png" alt="" srcset="">
-        <div class="slogan" v-if="languagetype != 2">
-            <p class="dowm">{{slogan[languagetype].down}}</p>
-            <p class="up">{{slogan[languagetype].up}}</p>
-        </div>
-        <div class="slogan1" v-else>
-            <div class="con">
-                <p class="up">{{slogan[languagetype].up}}</p>
-                <p class="dowm">{{slogan[languagetype].down}}</p>
-            </div>
+        <!-- <img class="menu" @click="setshowflagAsy(true)" src="../assets/h5_menu.png" alt="" srcset=""> -->
+        <div class="slogan">
+            <img v-if="languagetype == 1" src="../assets/h5_slogan_bg_ch.png" alt="" srcset="">
+            <img v-if="languagetype == 2" src="../assets/h5_slogan_bg_en.png" alt="" srcset="">
+            <img v-if="languagetype == 3" src="../assets/h5_slogan_bg_jp.png" alt="" srcset="">
         </div>
         <div class="aboutus">
-            <img class="bg" src="../assets/about_us_bg.png" alt="" srcset="">
+            <!-- <img class="bg" src="../assets/about_us_bg.png" alt="" srcset=""> -->
             <div class="con" @click="goaboutush5()">
                 <img v-if="languagetype == 1" src="../assets/h5_about_us_1.png" alt="" srcset="">
                 <img v-else-if="languagetype == 2" src="../assets/h5_about_us_2.png" alt="" srcset="">
                 <img v-else-if="languagetype == 3" src="../assets/h5_about_us_3.png" alt="" srcset="">
             </div>
-            <img class="bg" src="../assets/about_us_bg.png" alt="" srcset="">
+            <!-- <img class="bg" src="../assets/about_us_bg.png" alt="" srcset=""> -->
         </div>
         <div class="jiejue" @click="goquestenth5()">
             <img v-if="languagetype == 1" src="../assets/jiejuefangan_1.png" alt="" srcset="">
@@ -69,14 +64,14 @@
             <p class="lineslide"></p>
         </div>
         <footerh5></footerh5>
-        <navigationh5 v-if="showflag"></navigationh5>
+        <!-- <navigationh5 v-if="showflag"></navigationh5> -->
     </div>
 </template>
 <script>
 import {mapGetters, mapActions} from 'vuex';
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import footerh5 from '@/views/footerh5'
-import navigationh5 from '@/views/navigationh5'
+// import navigationh5 from '@/views/navigationh5'
 export default {
     data(){
         return{
@@ -86,8 +81,8 @@ export default {
                     up:'致力于一切和'
                 },
                 2:{
-                    down:'about beauty',
-                    up:'Do everthing'
+                    down:'Beauty',
+                    up:'Pursue of' 
                 },
                 3:{
                     down:'すべての美に関',
@@ -102,8 +97,8 @@ export default {
                 },
                 2:{
                 title:'Our Partners',
-                con:"Lacrae has developed a strong working relationships with all",
-                tips:'key online and offline sales channels and platforms'
+                con:"Lacrae has developed a strong working relationships with",
+                tips:'key online and offline sales channels and platforms .'
                 },
                 3:{
                 title:'我々のパートナー',
@@ -134,7 +129,7 @@ export default {
         footerh5,
         Swiper,
         SwiperSlide,
-        navigationh5
+        // navigationh5
     },
     methods:{
         ...mapActions(['setshowflagAsy']),
@@ -201,19 +196,13 @@ export default {
             width 0.7rem;
     .slogan
         width 100%;
-        height 5.3rem;
+        height 6.3rem;
         display flex;
         justify-content center;
         align-items center;
-        p
-            width 0.5rem;
-            font-size 0.3rem;
-            text-align center;   
-            font-weight 900;
-        .dowm
-            margin-top 1rem;
-        .up
-            margin-top -1rem;  
+        img
+            width 70%;
+            margin-top -0.5rem;
     .slogan1
         width 100%;
         height 6.3rem;

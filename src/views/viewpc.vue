@@ -1,21 +1,23 @@
 <template>
   <div class="home">
-    <img class="lecrae_logo" src="../assets/h5_logo.png" alt srcset />
+    <div class="top_title"><img class="lecrae_logo" src="../assets/h5_logo.png" alt srcset /></div>
     <div class="lau">
       <span :class="{activeclass:languagetype == 1}" @click="setlanguagetypeAsy(1)">中</span>|
       <span :class="{activeclass:languagetype == 2}" @click="setlanguagetypeAsy(2)">En</span>|
       <span :class="{activeclass:languagetype == 3}" @click="setlanguagetypeAsy(3)">JP</span>
     </div>
-    <div class="menu" @click="setnavflagAsy(1)" v-if="!navflag">
+    <!-- <div class="menu" @click="setnavflagAsy(1)" v-if="!navflag">
       <img src="../assets/meun.png" alt srcset />
-      <p>menu</p>
-    </div>
+      <p>MENU</p>
+    </div> -->
     <div class="slogan">
-      {{slogan[languagetype]}}
+      <img v-if="languagetype == 1" src="../assets/slogan_ch.png" alt="" srcset="">
+      <img v-if="languagetype == 2" src="../assets/slogan_en.png" alt="" srcset="">
+      <img v-if="languagetype == 3" src="../assets/slogan_jp.png" alt="" srcset="">
     </div>
     <div class="bg-1">
-      <img class="left" src="../assets/bg-1.png" alt srcset />
-      <img class="right" src="../assets/bg-1.png" alt srcset />
+      <!-- <img class="left" src="../assets/bg-1.png" alt srcset />
+      <img class="right" src="../assets/bg-1.png" alt srcset /> -->
       <img
         class="conimg"
         @click="gotoabout()"
@@ -95,9 +97,9 @@
         </div>
       </div>
     </div>
-    <transition-group name="opacityanimate">
+    <!-- <transition-group name="opacityanimate">
       <navigation :key="1" v-if="navflag" />
-    </transition-group>
+    </transition-group> -->
     <Footer></Footer>
   </div>
 </template>
@@ -105,7 +107,7 @@
 <script>
 // @ is an alias to /src
 import { mapActions, mapGetters } from "vuex";
-import navigation from "./navigation";
+// import navigation from "./navigation";
 import Footer from "../views/Footer";
 export default {
   name: "Home",
@@ -113,7 +115,7 @@ export default {
     return {
       slogan: {
         1: "致力于一切和“美”有关的事业",
-        2: "Do everthing about beauty",
+        2: "Pursue of Beauty",
         3: "すべての美に関わることをする"
       },
       Partner: {
@@ -125,8 +127,8 @@ export default {
         2: {
           title: "Our Partners",
           con:
-            "Lacrae has developed a strong working relationships with all key online ",
-          tips: "and offline sales channels and platforms"
+            "Lacrae has developed a strong working relationships with key online",
+          tips: "and offline sales channels and platforms ."
         },
         3: {
           title: "我々のパートナー",
@@ -147,7 +149,7 @@ export default {
   },
   props:['imgdata'],
   components: {
-    navigation,
+    // navigation,
     Footer
   },
   computed: {
@@ -177,9 +179,11 @@ export default {
     opacity: 1;
   }
 }
-
+.top_title{
+  background transparent !important;
+}
 .home {
-  padding-top: 0.8rem;
+  padding-top: 0.3rem;
   position: relative;
 
   .opacityanimate-enter, .opacityanimate-leave-to {
@@ -200,22 +204,22 @@ export default {
   top:0.1rem
 }
   .menu {
-    width: 0.2rem;
-    height: 0.2rem;
+    width: 0.4rem;
+    height: 0.6rem;
     position: fixed;
     top: 50%;
     margin-top: -0.1rem;
     right: 0rem;
     z-index: 10;
     text-align: center;
-    font-size: 0.05rem;
+    font-size: 0.1rem;
     font-family: Source Han Sans SC;
     font-weight: 500;
     color: white;
     cursor: pointer;
 
     img {
-      width: 30px;
+      width: 0.12rem;
       margin-top: 10px;
     }
   }
@@ -248,16 +252,19 @@ export default {
   }
 
   .slogan {
-    width: 2rem;
+    width: 80%;
+    height 1.31rem;
     font-size: 0.1rem;
     font-family: Microsoft YaHei;
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
     margin: 0 auto;
     text-align: center;
-
+    display flex;
+    justify-content center;
+    align-items center;
     img {
-      width: 0.3rem;
+      width: 80%;
     }
   }
 

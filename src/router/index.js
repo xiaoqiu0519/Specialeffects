@@ -42,9 +42,9 @@ const router = new VueRouter({
     base: process.env.BASE_URL,
     routes,
 })
-router.afterEach(() => {
-    $('#app').animate({ scrollTop: 0 }, 300);
-});
+// router.afterEach(() => {
+//     $('#app').animate({ scrollTop: 0 }, 300);
+// });
 
 
 export default router
