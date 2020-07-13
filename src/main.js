@@ -16,6 +16,9 @@ let hrefstr = window.location.href;
 if(hrefstr.includes('.com.au')){
     store.dispatch('setlanguagetypeAsy',2)
 }
+if(hrefstr.includes('.jp')){
+    store.dispatch('setlanguagetypeAsy',3)
+}
 Vue.config.productionTip = false
 Vue.prototype.$get = get;
 Vue.prototype.$post = post;

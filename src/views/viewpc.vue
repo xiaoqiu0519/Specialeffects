@@ -198,7 +198,6 @@ export default {
     transition: all 1.5s;
   }
 .lecrae_logo{
-  width:0.3rem;
   position:absolute;
   left:0.1rem;
   top:0.1rem
@@ -350,17 +349,14 @@ export default {
     width: 100%;
     margin-top: 0.5rem;
     clear: both;
-    //overflow: hidden;
-    background: url('../assets/zhanshi.png') no-repeat;
     background-size: 100% auto;
-
     .title {
       width: 2rem;
       margin: 0 auto;
       font-size: 0.09rem;
       font-weight: 900;
       text-align: center;
-      color: black;
+      color: white;
       margin-top: 40px;
       margin-bottom: 30px;
     }

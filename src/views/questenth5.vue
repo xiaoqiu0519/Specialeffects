@@ -1,5 +1,5 @@
 <template>
-    <div class="questenth5">
+    <div :class="{questenth5:true,questenth5_cn:languagetype == 1,questenth5_en:languagetype == 2,questenth5_jp:languagetype == 3}">
         <div class="header-top" @click="goindex()">
             <img src="../assets/fanhui1.png" alt="" srcset="">
             {{back[languagetype]}}
@@ -176,4 +176,25 @@ export default {
                     width 0.13rem;
                     margin-left 0.1rem;
                     margin-right 0.05rem;
+.questenth5_cn   
+    .list3
+        margin-top 0.25rem;  
+    .list4
+        margin-top 0.48rem;                  
+    .list5
+        margin-top 0.35rem;
+.questenth5_en  
+    .list3
+        margin-top 0.25rem;  
+    .list5
+        margin-top 0.22rem;     
+.questenth5_jp 
+    .list3
+        margin-top -0.05rem; 
+    .list4
+        margin-top 1.1rem;
+        .listimg
+            margin-top 0rem !important;        
+    .list5
+        margin-top -0.18rem;                    
 </style>

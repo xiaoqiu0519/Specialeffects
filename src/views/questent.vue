@@ -1,15 +1,15 @@
 <template>
   <div class="questent">
-    <div class="top_title"><img class="lecrae_logo" src="../assets/h5_logo.png" alt srcset /></div>
+    <div class="top_title"><img @click="gotoindex"  class="lecrae_logo" src="../assets/h5_logo.png" alt srcset /></div>
     <div class="con">
       <div class="list list1">
-        <div class="title" v-html="listobj.list1[languagetype]"></div>
+        <div class="title" :style="{top:languagetype == 2 ? '0.48rem' : languagetype == 3 ? '0.49rem' : ''}" v-html="listobj.list1[languagetype]"></div>
         <img v-if="languagetype == 1" src="../assets/questent_de_ch_1.png" alt="" srcset="">
         <img v-else-if="languagetype == 2" src="../assets/questent_de_en_1.png" alt="" srcset="">
         <img v-else-if="languagetype == 3" src="../assets/questent_de_jp_1.png" alt="" srcset="">
       </div>
       <div class="list list2">
-        <div class="title" style="top:0.32rem" v-html="listobj.list2[languagetype]"></div>
+        <div class="title" :style="{top:languagetype == 3 ? '0.38rem' : '0.32rem'}" v-html="listobj.list2[languagetype]"></div>
         <img v-if="languagetype == 1" src="../assets/questent_de_ch_2.png" alt="" srcset="">
         <img v-else-if="languagetype == 2" src="../assets/questent_de_en_2.png" alt="" srcset="">
         <img v-else-if="languagetype == 3" src="../assets/questent_de_jp_2.png" alt="" srcset="">
@@ -27,7 +27,7 @@
         <img v-else-if="languagetype == 3" src="../assets/questent_de_jp_4.png" alt="" srcset="">
       </div>
       <div class="list list5" style="text-align:left">
-        <div class="title" v-html="listobj.list5[languagetype]"  style="top:0.17rem"></div>
+        <div class="title" v-html="listobj.list5[languagetype]"  style="top:0.19rem"></div>
         <div class="serverlist">
           <div :class="{china:languagetype == 1,english:languagetype == 2,japan:languagetype == 3}" v-for="(item,index) in serverlist[languagetype]" :key="index">
             <img :src="item.img" alt="" srcset="">
@@ -116,9 +116,12 @@ export default {
     ...mapGetters(['languagetype'])
   },
   mounted(){
-    //if(document.getElementsByTagName('canvas')){
-     // document.getElementsByTagName('canvas')[0].height = document.body.offsetHeight 
-    //}
+    
+  },
+  methods:{
+    gotoindex(){
+        this.$router.push('/home')
+    }
   }
 }
 </script>
@@ -142,7 +145,7 @@ export default {
         font-size 0.08rem;
         text-align center;
         left 50px;
-        top 0.48rem;
+        top 0.42rem;
       img
         height 100%;
     .list1
@@ -170,6 +173,7 @@ export default {
         justify-content space-between;
         font-size 0.04rem; 
         margin-top -0.17rem;
+        margin-right: 0.1rem;
         &>div
           width 26%;
           padding 0 2%; 

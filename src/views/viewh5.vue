@@ -258,8 +258,7 @@ export default {
     .product
         margin-top 0.55rem;
         width 100%;
-        height 6rem;
-        background url('../assets/zhanshi.png') no-repeat;   
+        height 6rem; 
         background-size 110% auto;  
         background-position 50% 0;
         padding-top 0.1rem;
@@ -268,7 +267,7 @@ export default {
             text-align center;
             font-size 0.25rem;
             font-weight 800;
-            color  #1C1D1D;
+            color  white;
             margin-bottom 0.1rem;
         .swiperdiv
             .swiperimg

@@ -1,6 +1,6 @@
 <template>
   <div class="paroduct">
-    <div class="top_title"><img class="lecrae_logo" src="../assets/h5_logo.png" alt srcset /></div>
+    <div class="top_title"><img @click="gotoindex"  class="lecrae_logo" src="../assets/h5_logo.png" alt srcset /></div>
     <Swiper class="swiperdiv" :options="swiperOption">
       <swiper-slide v-for="(item,index) in imgdata[languagetype]" :key="index">
         <div class="swiperimg content">
@@ -62,6 +62,9 @@ export default {
             
           } 
       })
+    },
+    gotoindex(){
+      this.$router.push('/home')
     }
   }
 }
@@ -84,7 +87,7 @@ export default {
 <style lang="stylus">
 .paroduct
   .swiper-button-prev, .swiper-button-next
-    top 100px;
+    top 40%
     color #FF6704;
   .wrapper >>> .swiper-pagination-bullet-active
     background: red 

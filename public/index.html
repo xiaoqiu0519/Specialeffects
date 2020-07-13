@@ -16,8 +16,8 @@
     body {
         width: 100%;
         -min-height: 1000px;
-        background: linear-gradient(60deg, #BF3A20, #EC580A, #FFFFC4);
-        background: url('./lecare_bg.webp');
+        /* background: linear-gradient(60deg, #BF3A20, #EC580A, #FFFFC4); */
+        /* background: url('./wwwbg.jpeg'); */
         background-position: 0 200px;
         height: 100%;
         overflow-x: hidden;
@@ -46,7 +46,12 @@
 <script src="https://sirxemic.github.io/jquery.ripples/jquery.ripples.js"></script>
 <script type="text/javascript">
     var $ = jQuery;
-
+    var clientwidth = document.documentElement.clientWidth;
+      if(clientwidth > 900){
+        $('body').css({'background-image':'url("./wwwbg.jpeg")'})
+      }else{
+        $('body').css({'background-image':'url("./h5bg.jpeg")'})
+      }
     window.onload = function() {
         $('body').ripples({
             resolution: 500,
